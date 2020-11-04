@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1601950953 source:c:\mis cosas\1. utn\prog-lab1\practicas-en-c\cargamascotas-abm sabado\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+

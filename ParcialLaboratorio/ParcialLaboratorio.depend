@@ -1,0 +1,47 @@
+# depslib dependency file v1.0
+1603499704 source:c:\mis cosas\1. utn\prog-lab1\practicas-en-c\parciallaboratorio\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"razas-mascotas.h"
+
+1603504706 source:c:\mis cosas\1. utn\prog-lab1\practicas-en-c\parciallaboratorio\mascotas.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"razas-mascotas.h"
+
+1603499586 c:\mis cosas\1. utn\prog-lab1\practicas-en-c\parciallaboratorio\mascotas.h
+
+1602606506 c:\mis cosas\1. utn\prog-lab1\practicas-en-c\parciallaboratorio\razas.h
+
+1603504958 source:c:\mis cosas\1. utn\prog-lab1\practicas-en-c\parciallaboratorio\razas.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"razas-mascotas.h"
+
+1603507898 source:c:\mis cosas\1. utn\prog-lab1\practicas-en-c\parciallaboratorio\razas-mascotas.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"razas-mascotas.h"
+
+1603504917 c:\mis cosas\1. utn\prog-lab1\practicas-en-c\parciallaboratorio\razas-mascotas.h
+	"mascotas.h"
+	"razas.h"
+	"pais.h"
+
+1602596525 source:c:\mis cosas\1. utn\prog-lab1\practicas-en-c\parciallaboratorio\pais.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"razas-mascotas.h"
+
+1602596588 c:\mis cosas\1. utn\prog-lab1\practicas-en-c\parciallaboratorio\pais.h
+

@@ -1,0 +1,341 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+#include "razas-mascotas.h"
+#define TAM_RAZA 10
+#define TAM_MASC 20
+#define TRUE 1
+#define FALSE 0
+
+
+/////Se debe mostrar un listado de mascotas con sus razas y países de origen:
+void ListarMascotasConRaza(eMascotas listaMasc[], int tamMasc, eRazas listaRazas[], int tamRaza)
+{
+    int idRaza;
+    eRazas unaRaza;
+
+    printf("\n***************************************************************************************************");
+    printf("\n\t Listado de mascotas con su raza y pais de origen: \n\n");
+    printf("ID\tNOMBRE\t\tTIPO\tEDAD\tSEXO\t\tPESO\t\tRAZA\t\tPAIS ORIGEN\n");
+    for(int i=0;i<tamMasc;i++)
+    {
+        idRaza=listaMasc[i].idRaza;
+        unaRaza=EncontrarRazaDeUnaMascota(listaRazas,tamRaza,idRaza);
+        ImprimirMascotaConRaza(listaMasc[i],unaRaza);
+    }
+    printf("\n***************************************************************************************************");
+}
+
+eRazas EncontrarRazaDeUnaMascota(eRazas listaRazas[],int tamRaza, int idRaza)
+{
+    eRazas razaMascota;
+
+    for(int j=0;j<tamRaza;j++)
+    {
+        if(idRaza==listaRazas[j].idRaza)
+        {
+            razaMascota=listaRazas[j];
+        }
+    }
+
+    return razaMascota;
+}
+
+void ImprimirMascotaConRaza(eMascotas unaMascota,eRazas unaRaza)
+{
+    printf("%4d %10s %12s %5d %7c %17f %18s %15s\n",unaMascota.idMascota,
+                                                    unaMascota.nombreMascota,
+                                                    unaMascota.tipoMascota,
+                                                    unaMascota.edad,
+                                                    unaMascota.sexoMascota,
+                                                    unaMascota.peso,
+                                                    unaRaza.descripcionRaza,
+                                                    unaRaza.paisOrigenRaza);
+}
+
+/////-Se debe mostrar un listado de RAZAS con las mascotas que pertenecen a esa raza:
+
+void ListarPorCadaRazaLasMascotas(eMascotas listaMasc[], int tamMasc, eRazas listaRazas[], int tamRaza)
+{
+    int idRaza;
+
+    printf("\n*****************************************************************\n");
+    printf("\t Listado de cada raza con las mascotas de esa raza\n");
+    printf("ID     NOMBRE   TIPO   EDAD   SEXO    PESO\t\n");
+    for(int j=0;j<tamRaza;j++)
+    {
+        printf(" -------------------%s------------------- \n", listaRazas[j].descripcionRaza);
+        idRaza=listaRazas[j].idRaza;
+        EncontrarMascotasDeUnaRaza(listaMasc,tamMasc,idRaza);
+    }
+    printf("*****************************************************************\n");
+}
+
+void EncontrarMascotasDeUnaRaza(eMascotas listaMasc[],int tamMasc,int idRaza)
+{
+    for(int i=0;i<tamMasc;i++)
+    {
+        if(listaMasc[i].idRaza==idRaza)
+        {
+            imprimirUnaMascota(listaMasc[i]);
+        }
+    }
+}
+
+
+///Se debe mostrar un listado de mascotas ordenadas por peso
+int OrdenarMascotasPorPeso(eMascotas listaMasc[], int tamanioArray)
+{
+    int retorno=0;
+    eMascotas auxMascota;
+    for(int i=0;i<tamanioArray-1;i++)
+    {
+       for(int j=i+1;j<tamanioArray;j++)
+       {
+           if(listaMasc[i].peso<listaMasc[j].peso)
+           {
+               auxMascota=listaMasc[i];
+               listaMasc[i]=listaMasc[j];
+               listaMasc[j]=auxMascota;
+               retorno=1;
+           }
+        }
+    }
+    return retorno;
+}
+/*
+void MostrarIDRazas(eRazas listaRazas[], int tamRaza)
+{
+   for(int j=0;j<tamRaza;j++)
+    {
+        printf(" id %d : %s",   listaRazas[j].idRaza,
+                                listaRazas[j].descripcionRaza);
+    }
+
+}
+*/
+
+//Mostrar el país de origen que tenga más mascotas:
+void MostrarPaisConMasMascotas(eMascotas listaMasc[],int tamMasc,eRazas listaRaza[],int tamRaza)
+{
+    int contadorMascotasPorPais[TAM_RAZA]={0};
+    int idRaza;
+    int mayorCantidadMascotas;
+    int indicePais=0;
+    char paisConMayorCantidadMascotas[15];
+
+    for(int j=0;j<tamRaza;j++)
+    {
+        idRaza=listaMasc[j].idRaza;
+        ContarMascotasRazas(listaMasc,tamMasc,idRaza,contadorMascotasPorPais,j);
+        if(contadorMascotasPorPais[j]>mayorCantidadMascotas)
+        {
+            mayorCantidadMascotas=contadorMascotasPorPais[j];
+            indicePais=j;
+            strcpy(paisConMayorCantidadMascotas,listaRaza[j].paisOrigenRaza);
+        }
+    }
+    printf("\nEl pais que mas mascotas tiene es: %s con %d mascotas \n\n",paisConMayorCantidadMascotas,contadorMascotasPorPais[indicePais]);
+}
+
+void ContarMascotasRazas(eMascotas listaMasc[],int tamMasc,int idRaza,int contadorMascotasPorPais[],int j)
+{
+    for(int i=0;i<tamMasc;i++)
+    {
+        if(listaMasc[i].idRaza==idRaza)
+        {
+            contadorMascotasPorPais[j]++;
+        }
+    }
+}
+
+///////ORDENAR MASOOTAS POR CODIGO TELEFONICO
+void ListarMascotasOrdenadasPorCodigoTelefonico(eMascotas listaMasc[], int tamMasc, eRazas listaRazas[], int tamRaza,ePaisOrigen listaPaises[],int tamPais)
+{
+    int idRaza;
+    eRazas unaRaza;
+    ePaisOrigen unPais;
+
+    printf("\n***************************************************************************************************");
+    printf("\n\t Listado de mascotas con su raza y codigo telefonico del pais: \n\n");
+    printf("ID\tNOMBRE\t\tTIPO\tEDAD\tSEXO\t\tPESO\t\tRAZA\t\tCODIGO TELEFONICO PAIS\n");
+    for(int i=0;i<tamMasc;i++)
+    {
+        idRaza=listaMasc[i].idRaza;
+        unaRaza=EncontrarRazaDeUnaMascota(listaRazas,tamRaza,idRaza);
+        unPais=EncontrarPaisDeUnaRaza(unaRaza,listaPaises,tamPais);
+        //OrdenarMascotasPorCodigoTelefonico(listaMasc,unPais,tamMasc);
+        ImprimirListadoMascotasPais(listaMasc[i],unaRaza,unPais);
+    }
+    printf("\n***************************************************************************************************");
+}
+ePaisOrigen EncontrarPaisDeUnaRaza(eRazas unaRaza,ePaisOrigen listaPaises[],int tamPais)
+{
+    ePaisOrigen paisRaza;
+     for(int i=0;i<tamPais;i++)
+     {
+         if(unaRaza.idPais==listaPaises[i].idPais)
+         {
+            paisRaza=listaPaises[i];
+         }
+     }
+     return paisRaza;
+}
+void ImprimirListadoMascotasPais(eMascotas unaMascota,eRazas unaRaza,ePaisOrigen unPais)
+{
+     printf("%4d %10s %12s %5d %7c %17f %18s %15d\n",   unaMascota.idMascota,
+                                                        unaMascota.nombreMascota,
+                                                        unaMascota.tipoMascota,
+                                                        unaMascota.edad,
+                                                        unaMascota.sexoMascota,
+                                                        unaMascota.peso,
+                                                        unaRaza.descripcionRaza,
+                                                        unPais.codigoTelefonico);
+}
+
+/*
+void OrdenarMascotasPorCodigoTelefonico(eMascotas listaMasc[],ePaisOrigen unPais,int tamMasc)
+{
+    eMascotas auxMascota;
+    int codigoTelefonicoMayor=0;
+
+    for(int i=0;i<tamMasc-1;i++)
+    {
+       for(int j=i+1;j<tamMasc;j++)
+       {
+            if(unPais.codigoTelefonico>codigoTelefonicoMayor)
+            {
+                auxMascota=listaMasc[i];
+                listaMasc[i]=listaMasc[j];
+                listaMasc[j]=auxMascota;
+                codigoTelefonicoMayor=unPais.codigoTelefonico;
+            }
+       }
+    }
+}
+*/
+/////////////////////////////////////////////////ENTRADA DE DATOS//////////////////////////////////////////////////////////
+
+int PedirEntero(char texto[],char textoError[])
+{
+    char auxiliar[10];
+    int numeroIngresado;
+
+    printf("%s", texto);
+    fflush(stdin);
+    scanf("%[^\n]",auxiliar);
+    while(ValidarNumero(auxiliar)==0)
+    {
+        printf("%s", textoError);
+        fflush(stdin);
+        scanf("%[^\n]",auxiliar);
+    }
+     numeroIngresado= atoi(auxiliar);
+
+    return numeroIngresado;
+}
+
+int ValidarNumero(char numero[])
+{
+   int valido=1;
+   for(int i=0;i<strlen(numero);i++)
+   {
+	  if(numero[i] < '0' || numero[i] > '9')
+	  {
+		  valido=0;
+	  }
+   }
+   return valido;
+}
+
+void PedirString(char texto[],char textoError[],int max, char input[])
+{
+    char auxiliar[500];
+
+    printf("%s", texto);
+    fflush(stdin);
+    scanf("%[^\n]",auxiliar);
+    while(ValidarLetras(auxiliar)==0|| strlen(auxiliar)>max-1)
+    {
+        printf("%s", textoError);
+        fflush(stdin);
+        scanf("%[^\n]",auxiliar);
+    }
+     strcpy(input,auxiliar);
+}
+
+int ValidarLetras(char string[])
+{
+   int valido;
+   valido=1;
+
+  for(int i=0;i<strlen(string);i++)
+   {
+        if((string[i] != ' ') && (string[i] < 'a' || string[i] > 'z') && (string[i] < 'A' || string[i] > 'Z'))
+        {
+            valido=0;
+        }
+    }
+   return valido;
+}
+
+char getChar(char mensaje[])
+{
+    char auxiliar;
+    printf("%s",mensaje);
+    fflush(stdin);
+    scanf("%c",&auxiliar);
+    return auxiliar;
+}
+
+float PedirFlotante(char texto[],char textoError[])
+{
+    char auxiliar[10];
+    float numeroIngresado;
+
+    printf("%s", texto);
+    fflush(stdin);
+    scanf("%[^\n]",auxiliar);
+    while(ValidarFlotante(auxiliar)==0)
+    {
+        printf("%s", textoError);
+        fflush(stdin);
+        scanf("%[^\n]",auxiliar);
+    }
+     numeroIngresado=atof(auxiliar);
+
+    return numeroIngresado;
+}
+
+int ValidarFlotante(char numero[])
+{
+   int valido=1;
+   for(int i=0;i<strlen(numero);i++)
+   {
+	  if( (numero[i] < '0' || numero[i] > '9') && numero[i] !='.')
+	  {
+		  valido=0;
+	  }
+   }
+   return valido;
+}
+
+void ObtenerTamanioRazaValido(char texto[],char textoError [],char stringIngresado[])
+{
+    char auxiliar[100];
+
+    printf("%s", texto);
+    fflush(stdin);
+    scanf("%[^\n]",auxiliar);
+
+    strlwr( );
+    printf("%s",auxiliar);
+    while(strcmp(stringIngresado,"chico") || strcmp(stringIngresado,"mediano") || strcmp(stringIngresado,"grande"))
+    {
+        printf("%s",textoError);
+        fflush(stdin);
+        scanf("%[^\n]",auxiliar);
+    }
+    strcpy(stringIngresado,auxiliar);
+}

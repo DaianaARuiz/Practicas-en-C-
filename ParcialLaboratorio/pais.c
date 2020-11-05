@@ -32,7 +32,10 @@ void MostrarListadoPaisesDisponibles(ePaisOrigen listaPaises[], int tamPais)
     printf("ID \tNOMBRE\tCONTINENTE\t\tCODIGO TELEFONICO \n");
     for(int i=0;i<tamPais;i++)
     {
-        ImprimirUnPais(listaPaises[i]);
+        if(listaPaises[i].isEmpty==FALSE)
+        {
+            ImprimirUnPais(listaPaises[i]);
+        }
     }
     printf("\n***********************************************************************");
 }

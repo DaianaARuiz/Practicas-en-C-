@@ -45,3 +45,59 @@
 
 1602596588 c:\mis cosas\1. utn\prog-lab1\practicas-en-c\parciallaboratorio\pais.h
 
+1604611471 source:c:\mis cosas\1. utn\practicas-en-c-\parciallaboratorio\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"razas-mascotas.h"
+
+1604611606 c:\mis cosas\1. utn\practicas-en-c-\parciallaboratorio\razas-mascotas.h
+	"mascotas.h"
+	"razas.h"
+	"pais.h"
+	"inputs.h"
+
+1603499586 c:\mis cosas\1. utn\practicas-en-c-\parciallaboratorio\mascotas.h
+
+1604611536 c:\mis cosas\1. utn\practicas-en-c-\parciallaboratorio\razas.h
+
+1602596588 c:\mis cosas\1. utn\practicas-en-c-\parciallaboratorio\pais.h
+
+1604611999 source:c:\mis cosas\1. utn\practicas-en-c-\parciallaboratorio\mascotas.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"razas-mascotas.h"
+
+1604612089 source:c:\mis cosas\1. utn\practicas-en-c-\parciallaboratorio\pais.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"razas-mascotas.h"
+
+1604612294 source:c:\mis cosas\1. utn\practicas-en-c-\parciallaboratorio\razas-mascotas.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"razas-mascotas.h"
+
+1604611914 source:c:\mis cosas\1. utn\practicas-en-c-\parciallaboratorio\razas.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"razas-mascotas.h"
+
+1604610398 source:c:\mis cosas\1. utn\practicas-en-c-\parciallaboratorio\inputs.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"razas-mascotas.h"
+
+1604604553 c:\mis cosas\1. utn\practicas-en-c-\parciallaboratorio\inputs.h
+

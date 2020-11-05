@@ -60,10 +60,19 @@ esas razas
 #Opción borrar RAZA:
 borrado en cascada de una raza, al borrar una raza , se borran todas las
 mascotas de esa raza
+
+
 #-Opción Listar por TIPO y PESO:
 Sabiendo que solo hay tres tipos de mascotas (tipo{gato ,perro o raro}),
 informar el peso total de cada tipo, la cantidad de mascotas por tipo y el promedio de
 peso por tipo.Estos tres datos en una tabla bien hecha.
+
+******************************** 7ma parte
+#-Opción Listar por TAMAÑO y PESO:
+-Sabiendo que solo hay tres tamaños(tamaño{chico ,mediano o grande}),pedir
+el ingreso al usuario de un tamaño válido y mostrar el listado de mascotas de este
+tamaño con sus países de origen peso y la suma total del peso entre estas mascotas
+
 
 */
 
@@ -112,7 +121,7 @@ int main()
     InicializarArrayMascotas(listaMascotas,TAM_MASC);
     InicializarArrayRaza(listaRazas,TAM_RAZA);
      do{
-            opcionMenu=PedirEntero("\nMASCOTAS:\n\n1.ALTA MASCOTA\n2.ELIMINAR MASCOTA \n3.MODIFICAR\n4.INFORMAR\n5.HARCODEAR DATOS(solo para testeo)\n\nRAZA:\n\n6.ALTA RAZA\n10.SALIR\nEliga una opcion:","Error.No se permiten letras. Reingrese la opcion: ");
+            opcionMenu=PedirEntero("\nMASCOTAS:\n\n1.ALTA MASCOTA\n2.ELIMINAR MASCOTA \n3.MODIFICAR\n4.INFORMAR\n5.HARCODEAR DATOS(solo para testeo)\n\nRAZA:\n\n6.ALTA RAZA\n7.BAJA RAZA\n10.SALIR\nEliga una opcion:","Error.No se permiten letras. Reingrese la opcion: ");
 
             switch(opcionMenu)
             {
@@ -129,9 +138,9 @@ int main()
                         }
                     break;
                 case 2:
-                    if(contadorMascotasCargadas!=0)
+                   if(contadorMascotasCargadas!=0)
                     {
-                            ListarMascotas(listaMascotas,TAM_MASC);
+                            ListarMascotas(listaMascotas,contadorMascotasCargadas);
                             printf("\nIngrese el ID de la mascota que desea dar de baja:");
                             scanf("%d",&idEliminar);
                             if(eliminarUnaMascota(listaMascotas,contadorMascotasCargadas,idEliminar)==0)
@@ -178,7 +187,8 @@ int main()
                     if(contadorMascotasCargadas!=0)
                     {
                         do{
-                            printf("\nINFORMAR\n1.Mostrar Mascotas\n 2.Mostrar Razas \n3.Mostrar listado de mascotas con sus razas y paises de origen\n5.Mostrar un listado de mascotas ordenadas por peso\n6.Mostrar el país de origen que tenga más mascotas\n7.Mostrar Listado Mascotas ordenadas por codigo telefonico del pais\n10.SALIR DE ESTE MENU\n");
+                            printf("\nINFORMAR\n1.Mostrar Mascotas\n2.Mostrar Razas\n3.Mostrar listado de mascotas con sus razas y paises de origen\n5.Mostrar un listado de mascotas ordenadas por peso\n6.Mostrar el país de origen que tenga más mascotas\n7.Mostrar Listado Mascotas ordenadas por codigo telefonico del pais\n");
+                            printf("8.Mostrar un listado de mascotas con las razas y los países de esas razas\n10.SALIR DE ESTE MENU\n");
                             opcionMostrar=PedirEntero("Eliga una opcion:","Error.No se permiten letras. Reingrese la opcion: ");
                             switch(opcionMostrar)
                             {
@@ -204,7 +214,10 @@ int main()
                                     MostrarPaisConMasMascotas(listaMascotas,contadorMascotasCargadas,listaRazas,contadorRazasCargadas);
                                     break;
                                 case 7:
-                                    ListarMascotasOrdenadasPorCodigoTelefonico(listaMascotas,contadorMascotasCargadas,listaRazas,contadorRazasCargadas,listaPaises,contadorPaisesCargados);
+                                    ListarMascotasOrdenadasPorCodigoTelefonico(listaMascotas,contadorMascotasCargadas,listaRazas,contadorRazasCargadas,listaPaises,TAM_PAIS);
+                                    break;
+                                case 8:
+                                    ListarMascotasConRazaYCodigoTelefonico(listaMascotas,contadorMascotasCargadas,listaRazas,contadorRazasCargadas,listaPaises,contadorPaisesCargados);
                                     break;
 
                             }
@@ -237,6 +250,24 @@ int main()
                         }else{
                         printf("\nNo hay mas espacio de almacenamiento\n");
                         }
+                    }else
+                    {
+                        printf("\nPor favor, primero realice la carga de los datos.\n");
+                    }
+                    break;
+                case 7:
+                    if(contadorMascotasCargadas!=0 && contadorRazasCargadas!=0)
+                    {
+                            ListarRazas(listaRazas,contadorRazasCargadas);
+                            printf("\nIngrese el ID de la raza que desea dar de baja:");
+                            scanf("%d",&idEliminar);
+                            if(EliminarUnaRaza(listaRazas,contadorRazasCargadas,idEliminar,listaMascotas,contadorMascotasCargadas) )
+                            {
+                                printf("\nSe ha eliminado la raza exitosamente\n");
+                            }else
+                            {
+                                printf("\nEl ID ingresado no corresponde a ninguna raza.Por favor, verifique e intente nuevamente\n");
+                            }
                     }else
                     {
                         printf("\nPor favor, primero realice la carga de los datos.\n");

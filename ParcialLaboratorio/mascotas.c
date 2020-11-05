@@ -66,7 +66,7 @@ int InicializarArrayMascotas(eMascotas listaMasc[],int tamanioArray)
     eMascotas unaMascota;
 
     PedirString("\nIngrese nombre mascota: ","Error. Reingrese nombre: ",20, unaMascota.nombreMascota);
-    PedirString("Ingrese el tipo de mascota: ","Error. Reingrese tipo: ",10, unaMascota.tipoMascota);
+    ObtenerTipoValido("Ingrese el tipo de mascota: ","Error. Reingrese tipo: ",unaMascota.tipoMascota);
     unaMascota.edad= PedirEntero("Ingrese edad de la mascota: ","Error, reingrese edad valida:");
     unaMascota.sexoMascota=getChar("Ingrese sexo mascota(f o m): ");
     unaMascota.peso= PedirFlotante("Ingrese el peso de la mascota: ","Error, reingrese peso valido:");
@@ -129,11 +129,10 @@ int ModificarUnaMascota( eMascotas listaMasc[],int idAModificar,int opcion, int 
 int eliminarUnaMascota(eMascotas listaMasc[],int tamanioArray, int idEliminar)
 {
     int retorno=-1;
-    int indiceIDbuscado=BuscarPorID(idEliminar,tamanioArray,listaMasc);
-    if(indiceIDbuscado!=-1)
+    if(  (BuscarPorID(idEliminar,tamanioArray,listaMasc)) != -1 )
     {
         retorno=0;
-        listaMasc[indiceIDbuscado].isEmpty=TRUE;
+        listaMasc[idEliminar].isEmpty=TRUE;
     }
     return retorno;
 }
@@ -160,7 +159,10 @@ void ListarMascotas(eMascotas listaMasc[], int tamanioArray)
     printf("ID \tNOMBRE\tTIPO\t EDAD \tSEXO\t PESO\n");
     for(int i=0;i<tamanioArray;i++)
     {
-        imprimirUnaMascota(listaMasc[i]);
+        if(listaMasc[i].isEmpty==FALSE)
+        {
+            imprimirUnaMascota(listaMasc[i]);
+        }
     }
     printf("\n*********************************************************************************");
 }
@@ -174,5 +176,3 @@ void imprimirUnaMascota(eMascotas unaMascota)
                                             unaMascota.sexoMascota,
                                             unaMascota.peso);
 }
-
-

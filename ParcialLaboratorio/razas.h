@@ -21,3 +21,7 @@ void ImprimirUnaRaza(eRazas);
 int InicializarArrayRaza(eRazas [],int);
 int BuscarLibreRaza(eRazas [],int);
 eRazas AltaRaza(eRazas [],int , int);
+
+////////////////BAJA RAZA//////////////////////
+int EliminarUnaRaza(eRazas listaRaza[],int tamRaza, int idEliminar, eMascotas listaMascotas[],int tamMasc);
+int BuscarRazaPorID(int idIngresado, int tam, eRazas listaRaza[]);

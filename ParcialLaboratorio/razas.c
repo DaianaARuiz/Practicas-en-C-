@@ -73,7 +73,34 @@ int InicializarArrayRaza(eRazas listaRaza[],int tamanioArray)
     return unaRaza;
  }
 
+///////////////////////BAJA EN CASCADA//////////////////////////////////////BAJA EN CASCADA///////////////////////////////////////
+int EliminarUnaRaza(eRazas listaRaza[],int tamRaza, int idEliminar, eMascotas listaMascotas[],int tamMasc)
+{
+    int retorno=0;
+    int indiceIDRazaAEliminar=BuscarRazaPorID(idEliminar,tamRaza,listaRaza);
 
+    if(  indiceIDRazaAEliminar !=-1)
+    {
+        retorno=1;
+        listaRaza[indiceIDRazaAEliminar].isEmpty=TRUE;
+        EliminarMascotasDeUnaRaza(listaMascotas,tamMasc,indiceIDRazaAEliminar);
+    }
+    return retorno;
+}
+
+int BuscarRazaPorID(int idIngresado, int tam, eRazas listaRaza[])
+{
+    int indiceIDbuscado=-1;
+    for(int i=0;i<tam;i++)
+    {
+       if(listaRaza[i].idRaza==idIngresado)
+       {
+            indiceIDbuscado=i;
+            break;
+       }
+    }
+    return indiceIDbuscado;
+}
 ///////////////////////INFORMAR//////////////////////////////////////INFORMAR/////////////////////////////////////////////
 
 
@@ -84,7 +111,10 @@ void ListarRazas(eRazas listaRazas[], int tamanioArray)
     printf("ID \tDESCRIPCION\tTAMANIO\t\tPAIS DE ORIGEN \n");
     for(int i=0;i<tamanioArray;i++)
     {
-        ImprimirUnaRaza(listaRazas[i]);
+        if(listaRazas[i].isEmpty==FALSE )
+        {
+            ImprimirUnaRaza(listaRazas[i]);
+        }
     }
     printf("\n***********************************************************************");
 }

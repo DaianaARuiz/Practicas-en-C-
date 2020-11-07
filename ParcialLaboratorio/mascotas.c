@@ -16,7 +16,7 @@ void HarcodearMascotas(eMascotas listaMasc[])
     int edad[]={3,2,4,7,2,8,9};
     char sexo[]={'f','m','f','m','m','m','m'};
     char tipo[][10]={"Gato","Perro","Gato","Perro","Gato","Perro","Perro"};
-    int idRaza[]={150,135,180,318,150,130,140};
+    int idRaza[]={150,135,180,175,150,130,140};
     int peso[]={10,20,5,16,7,8,13};
 
 

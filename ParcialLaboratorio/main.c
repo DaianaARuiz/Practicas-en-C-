@@ -196,7 +196,7 @@ int main()
                     if(contadorMascotasCargadas!=0)
                     {
                         do{
-                            printf("\nINFORMAR\n1.Mostrar Mascotas\n2.Mostrar Razas\n3.Mostrar listado de mascotas con sus razas y paises de origen\n5.Mostrar un listado de mascotas ordenadas por peso\n6.Mostrar el país de origen que tenga más mascotas\n7.Mostrar Listado Mascotas ordenadas por codigo telefonico del pais\n");
+                            printf("\nINFORMAR\n1.Mostrar Mascotas\n2.Mostrar Razas\n3.Mostrar listado de mascotas con sus razas y paises de origen\n5.Mostrar un listado de mascotas ordenadas por peso\n6.Mostrar el pais de origen que tenga más mascotas\n7.Mostrar Listado Mascotas ordenadas por codigo telefonico del pais\n");
                             printf("8.Mostrar un listado de mascotas con las razas y los países de esas razas\n10.SALIR DE ESTE MENU\n");
                             opcionMostrar=PedirEntero("Eliga una opcion:","Error.No se permiten letras. Reingrese la opcion: ");
                             switch(opcionMostrar)

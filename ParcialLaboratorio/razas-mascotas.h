@@ -13,7 +13,7 @@ eMascotas AltaMascotas(eMascotas [],int , int ,int , eRazas []);
 void ListarMascotasConRazaYCodigoTelefonico(eMascotas [], int , eRazas [], int ,ePaisOrigen [],int );
 void ImprimirListadoMascotasPais(eMascotas ,eRazas ,ePaisOrigen);
 ePaisOrigen EncontrarPaisDeUnaRaza(eRazas ,ePaisOrigen [],int);
-void OrdenarMascotasPorCodigoTelefonico(eMascotas [],ePaisOrigen ,int );
+int OrdenarMascotasPorCodigoTelefonico(eMascotas [],ePaisOrigen ,int );
 
 
 //listado de mascotas con sus razas y países de origen:

@@ -4,7 +4,6 @@ typedef struct{
  char tamanioRaza[8];
  char paisOrigenRaza[15];
  int idRaza; //PK
- int idPais; //FK
  int isEmpty;
 }eRazas;
 

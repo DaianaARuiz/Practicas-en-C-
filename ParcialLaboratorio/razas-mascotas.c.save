@@ -22,7 +22,7 @@ void ListarMascotasConRaza(eMascotas listaMasc[], int tamMasc, eRazas listaRazas
     {
         idRaza=listaMasc[i].idRaza;
         unaRaza=EncontrarRazaDeUnaMascota(listaRazas,tamRaza,idRaza);
-        if(listaMasc[i].isEmpty==FALSE &&)
+        if(listaMasc[i].isEmpty==FALSE)
         {
             ImprimirMascotaConRaza(listaMasc[i],unaRaza);
         }
@@ -70,7 +70,10 @@ void ListarPorCadaRazaLasMascotas(eMascotas listaMasc[], int tamMasc, eRazas lis
     {
         printf(" -------------------%s------------------- \n", listaRazas[j].descripcionRaza);
         idRaza=listaRazas[j].idRaza;
-        ImprimirMascotasDeUnaRaza(listaMasc,tamMasc,idRaza);
+        if(listaRazas[j].isEmpty==FALSE)
+        {
+            ImprimirMascotasDeUnaRaza(listaMasc,tamMasc,idRaza);
+        }
     }
     printf("*****************************************************************\n");
 }
@@ -79,7 +82,7 @@ void ImprimirMascotasDeUnaRaza(eMascotas listaMasc[],int tamMasc,int idRaza)
 {
     for(int i=0;i<tamMasc;i++)
     {
-        if(listaMasc[i].idRaza==idRaza)
+        if( listaMasc[i].idRaza==idRaza && listaMasc[i].isEmpty==FALSE)
         {
             imprimirUnaMascota(listaMasc[i]);
         }
@@ -202,8 +205,10 @@ void ListarMascotasOrdenadasPorCodigoTelefonico(eMascotas listaMasc[], int tamMa
         idRaza=listaMasc[i].idRaza;
         unaRaza=EncontrarRazaDeUnaMascota(listaRazas,tamRaza,idRaza);
         unPais=EncontrarPaisDeUnaRaza(unaRaza,listaPaises,tamPais);
-        OrdenarMascotasPorCodigoTelefonico(listaMasc,unPais,tamMasc);
-        ImprimirListadoMascotasCodigoTelefonico(listaMasc[i],unPais);
+        if(listaMasc[i].isEmpty==FALSE && (OrdenarMascotasPorCodigoTelefonico(listaMasc,unPais,tamMasc))==1 )
+        {
+           ImprimirListadoMascotasCodigoTelefonico(listaMasc[i],unPais);
+        }
     }
     printf("\n***************************************************************************************************");
 }
@@ -247,13 +252,14 @@ void ImprimirListadoMascotasCodigoTelefonico(eMascotas unaMascota,ePaisOrigen un
 
 
 
-void OrdenarMascotasPorCodigoTelefonico(eMascotas listaMasc[],ePaisOrigen unPais,int tamMasc)
+int OrdenarMascotasPorCodigoTelefonico(eMascotas listaMasc[],ePaisOrigen unPais,int tamMasc)
 {
     eMascotas auxMascota;
+    int retorno=0;
     int codigoTelefonicoMayor=0;
-
+    printf("Entre a funcion de ordenamiento");
     for(int i=0;i<tamMasc-1;i++)
-    {
+    {   printf("Primer for");
        for(int j=i+1;j<tamMasc;j++)
        {
            if(unPais.codigoTelefonico>codigoTelefonicoMayor)
@@ -262,9 +268,11 @@ void OrdenarMascotasPorCodigoTelefonico(eMascotas listaMasc[],ePaisOrigen unPais
                 listaMasc[i]=listaMasc[j];
                 listaMasc[j]=auxMascota;
                 codigoTelefonicoMayor=unPais.codigoTelefonico;
+                printf("%d",);
             }
        }
+       retorno=1;
     }
+    return retorno;
 }
-
 

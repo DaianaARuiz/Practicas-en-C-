@@ -137,7 +137,7 @@ void MostrarPaisConMasMascotas(eMascotas listaMasc[],int tamMasc,eRazas listaRaz
 {
     int contadorMascotasPorPais[TAM_RAZA]={0};
     int idRaza;
-    int mayorCantidadMascotas;
+    int mayorCantidadMascotas=0;
     int indicePais=0;
     char paisConMayorCantidadMascotas[15];
 

@@ -60,18 +60,18 @@
 
 1604772980 c:\mis cosas\1. utn\practicas-en-c-\parciallaboratorio\mascotas.h
 
-1604611536 c:\mis cosas\1. utn\practicas-en-c-\parciallaboratorio\razas.h
+1604782643 c:\mis cosas\1. utn\practicas-en-c-\parciallaboratorio\razas.h
 
-1602596588 c:\mis cosas\1. utn\practicas-en-c-\parciallaboratorio\pais.h
+1604782627 c:\mis cosas\1. utn\practicas-en-c-\parciallaboratorio\pais.h
 
-1604775354 source:c:\mis cosas\1. utn\practicas-en-c-\parciallaboratorio\mascotas.c
+1604781907 source:c:\mis cosas\1. utn\practicas-en-c-\parciallaboratorio\mascotas.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<ctype.h>
 	"razas-mascotas.h"
 
-1604612089 source:c:\mis cosas\1. utn\practicas-en-c-\parciallaboratorio\pais.c
+1604782085 source:c:\mis cosas\1. utn\practicas-en-c-\parciallaboratorio\pais.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -85,7 +85,7 @@
 	<ctype.h>
 	"razas-mascotas.h"
 
-1604781353 source:c:\mis cosas\1. utn\practicas-en-c-\parciallaboratorio\razas.c
+1604783064 source:c:\mis cosas\1. utn\practicas-en-c-\parciallaboratorio\razas.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>

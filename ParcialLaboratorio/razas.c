@@ -61,7 +61,6 @@ int InicializarArrayRaza(eRazas listaRaza[],int tamanioArray)
  {
     eRazas unaRaza;
     PedirString("\nIngrese la descripcion de la raza: ","Error. Reingrese descripcion: ",15, unaRaza.descripcionRaza);
-    //PedirString("Ingrese el tamanio de la raza(chico-mediano-grande): ","Error. Reingrese tamanio: ",8, unaRaza.tamanioRaza);
     ObtenerTamanioRazaValido("Ingrese el tamanio de la raza(chico-mediano-grande): ","Error. Reingrese tamanio: ", unaRaza.tamanioRaza);
     PedirString("Ingrese el pais de origen de la raza: ","Error. Reingrese pais de origen: ",15, unaRaza.paisOrigenRaza);
     unaRaza.idRaza=PedirEntero("Ingrese el id de la raza : ","Error, reingrese id valido:");

@@ -3,7 +3,6 @@ typedef struct{
  char continente[8];
  int codigoTelefonico;
  int idPais; //PK
- int idRazaPais; //FK
  int isEmpty;
 }ePaisOrigen;
 

@@ -22,7 +22,7 @@ void ListarMascotasConRaza(eMascotas listaMasc[], int tamMasc, eRazas listaRazas
     {
         idRaza=listaMasc[i].idRaza;
         unaRaza=EncontrarRazaDeUnaMascota(listaRazas,tamRaza,idRaza);
-        if(listaMasc[i].isEmpty==FALSE)
+        if(listaMasc[i].isEmpty==FALSE && unaRaza.isEmpty==TRUE )
         {
             ImprimirMascotaConRaza(listaMasc[i],unaRaza);
         }
@@ -57,7 +57,7 @@ void ImprimirMascotaConRaza(eMascotas unaMascota,eRazas unaRaza)
                                                     unaRaza.paisOrigenRaza);
 }
 
-/////-Se debe mostrar un listado de RAZAS con las mascotas que pertenecen a esa raza:
+////Se debe mostrar un listado de RAZAS con las mascotas que pertenecen a esa raza:
 
 void ListarPorCadaRazaLasMascotas(eMascotas listaMasc[], int tamMasc, eRazas listaRazas[], int tamRaza)
 {
@@ -178,7 +178,11 @@ void ListarMascotasConRazaYCodigoTelefonico(eMascotas listaMasc[], int tamMasc, 
         idRaza=listaMasc[i].idRaza;
         unaRaza=EncontrarRazaDeUnaMascota(listaRazas,tamRaza,idRaza);
         unPais=EncontrarPaisDeUnaRaza(unaRaza,listaPaises,tamPais);
-        ImprimirListadoMascotasRazaPais(listaMasc[i],unaRaza,unPais);
+
+        if(listaMasc[i].isEmpty==FALSE && unaRaza.isEmpty==FALSE && unPais.isEmpty==FALSE )
+        {
+            ImprimirListadoMascotasRazaPais(listaMasc[i],unaRaza,unPais);
+        }
     }
     printf("\n***************************************************************************************************");
 }
@@ -252,7 +256,7 @@ void OrdenarMascotasPorCodigoTelefonico(eMascotas listaMasc[],ePaisOrigen unPais
     {
        for(int j=i+1;j<tamMasc;j++)
        {
-            if(unPais.codigoTelefonico>codigoTelefonicoMayor)
+           if(unPais.codigoTelefonico>codigoTelefonicoMayor)
             {
                 auxMascota=listaMasc[i];
                 listaMasc[i]=listaMasc[j];

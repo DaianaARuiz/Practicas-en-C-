@@ -126,7 +126,6 @@ int ModificarUnaMascota( eMascotas listaMasc[],int idAModificar,int opcion, int 
 }
 
 /////////////////////BAJA MASCOTA////////////////////////////////////////////////BAJA MASCOTA/////////////////////////////////////////////
-
 int eliminarUnaMascota(eMascotas listaMasc[],int tamanioArray, int idEliminar)
 {
     int retorno=-1;

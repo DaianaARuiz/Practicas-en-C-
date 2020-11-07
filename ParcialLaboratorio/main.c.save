@@ -3,8 +3,7 @@ Soy un veterinario que necesita atender a las mascotas de sus clientes, para ten
 control vamos a tener un sistema ....el sistema debe realizar las siguientes
 funcionalidades.(los datos deben ser hardcodeados).
 
-******************************** 1era parte ********************************
-
+******************************** 1era parte
 #-Tenemos un listado de mascotas(nombre,edad,sexo{f o m},tipo{gato ,perro o raro})
 tenemos por ahora 5 mascotas ​pero tengo lugar para 10.
 #Tenemos un listado de razas(descripción,tamaño{chico ,mediano o grande},país de
@@ -22,28 +21,25 @@ c- los demás datos deben ser hardcodeados por el alumno.
 1-Se debe mostrar un listado de mascotas con sus razas y países de origen //
 
 
-******************************** 2da parte ********************************
-
+******************************** 2da parte
 #-Alta de mascota, se pueden cargar todos los datos y se debe mostrar el listado de //
 razas disponibles, teniendo en cuenta que ya tengo 5 mascotas cargadas y que el
 máximo es 10
 #-Se debe mostrar un listado de RAZAS con las mascotas que pertenecen a esa
 raza //
 
-******************************** 3era parte ********************************
-
+******************************** 3era parte
 #Borrado lógico de una mascota del listado //
 #-Se debe mostrar un listado de mascotas ordenadas por peso //
 
-******************************** 4ta parte ********************************
-
+******************************** 4ta parte
 #Modificación de una mascotas(todo menos el id). //
 #Menú de opciones
 #-Alta de RAZA
 #-Se debe mostrar el país de origen que tenga más mascotas en nuestra
 veterinaria.
 
-******************************** 5ta parte ********************************
+******************************** 5ta parte
 excluyente :
 #Menú de opciones
 Se nos agregaron dos mascotas más , un dogo argentino y un pastor alemán,
@@ -62,7 +58,7 @@ a-ordenar mascotas por el CodigoTelefonico del continente, de mayor a menor.
 b-Se debe mostrar un listado de mascotas con las razas y los países de
 esas razas
 
-******************************** 6ta parte ********************************
+******************************** 6ta parte
 #Opción borrar RAZA:
 borrado en cascada de una raza, al borrar una raza,se borran todas las
 mascotas de esa raza
@@ -74,14 +70,12 @@ informar el peso total de cada tipo, la cantidad de mascotas por tipo y el prome
 peso por tipo. Estos tres datos en una tabla bien hecha.
 
 
-******************************** 7ma parte ********************************
+******************************** 7ma parte
 
 #-Opción Listar por TAMAÑO y PESO:
 -Sabiendo que solo hay tres tamaños(tamaño{chico ,mediano o grande}),pedir
 el ingreso al usuario de un tamaño válido y mostrar el listado de mascotas de este
 tamaño con sus países de origen peso y la suma total del peso entre estas mascotas.
-
-******************************** ******************************** ******************
 
 */
 

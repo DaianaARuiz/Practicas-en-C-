@@ -149,10 +149,10 @@ int main()
                 case 2:
                    if(contadorMascotasCargadas!=0)
                     {
-                            ListarMascotas(listaMascotas,contadorMascotasCargadas);
+                            ListarMascotas(listaMascotas,TAM_MASC);
                             printf("\nIngrese el ID de la mascota que desea dar de baja:");
                             scanf("%d",&idEliminar);
-                            if(eliminarUnaMascota(listaMascotas,contadorMascotasCargadas,idEliminar)==0)
+                            if(eliminarUnaMascota(listaMascotas,contadorMascotasCargadas,idEliminar))
                             {
                                 printf("\nSe ha eliminado la mascota exitosamente\n");
                             }else
@@ -170,7 +170,7 @@ int main()
                             ListarMascotas(listaMascotas,contadorMascotasCargadas);
                             printf("\nIngrese el ID de la mascota que desea modificar:");
                             scanf("%d", &idAModificar);
-                            if(BuscarPorID(idAModificar,contadorMascotasCargadas,listaMascotas)!=-1)
+                            if(BuscarPorIDMascota(idAModificar,contadorMascotasCargadas,listaMascotas)!=-1)
                             {
                                 printf("\n1-MODIFICAR NOMBRE\n2-MODIFICAR EDAD\n3-MODIFICAR TIPO\n4-MODIFICAR SEXO\n5-MODIFICAR PESO\n6-MODIFICAR ID RAZA\nSeleccione la accion que desea realizar:");
                                 scanf("%d", &opcionModificar);

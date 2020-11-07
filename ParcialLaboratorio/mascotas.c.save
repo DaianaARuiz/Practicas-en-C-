@@ -68,7 +68,7 @@ int InicializarArrayMascotas(eMascotas listaMasc[],int tamanioArray)
     PedirString("\nIngrese nombre mascota: ","Error. Reingrese nombre: ",20, unaMascota.nombreMascota);
     ObtenerTipoValido("Ingrese el tipo de mascota: ","Error. Reingrese tipo: ",unaMascota.tipoMascota);
     unaMascota.edad= PedirEntero("Ingrese edad de la mascota: ","Error, reingrese edad valida:");
-    unaMascota.sexoMascota=getChar("Ingrese sexo mascota(f o m): ");
+    unaMascota.sexoMascota= ObtenerSexoValido("Ingrese sexo mascota(f o m): ", "Erro. Sexo no valido. Reingrese: ");
     unaMascota.peso= PedirFlotante("Ingrese el peso de la mascota: ","Error, reingrese peso valido:");
 
     ListarRazas(listaRazas,tamRaza);
@@ -126,31 +126,39 @@ int ModificarUnaMascota( eMascotas listaMasc[],int idAModificar,int opcion, int 
 }
 
 /////////////////////BAJA MASCOTA////////////////////////////////////////////////BAJA MASCOTA/////////////////////////////////////////////
+
 int eliminarUnaMascota(eMascotas listaMasc[],int tamanioArray, int idEliminar)
 {
     int retorno=-1;
-    if(  (BuscarPorID(idEliminar,tamanioArray,listaMasc)) != -1 )
+
+    if(BuscarPorID(idEliminar,tamanioArray,listaMasc)
     {
+        if()
         retorno=0;
         listaMasc[idEliminar].isEmpty=TRUE;
     }
     return retorno;
 }
 
-int BuscarPorID(int idIngresado, int tam, eMascotas listaMasc[])
+int BuscarPorIDMascota(int idIngresado, int tam, eMascotas listaMasc[])
 {
-    int indiceIDbuscado=-1;
+    int retorno=0;
     for(int i=0;i<tam;i++)
     {
        if(listaMasc[i].idMascota==idIngresado)
        {
-            indiceIDbuscado=i;
+             retorno=1;
             break;
        }
     }
     return indiceIDbuscado;
 }
 
+int BuscarIndiceDeUnIdMascota(int idIngresado, int tam, eMascotas listaMasc[])
+{
+    
+
+}
 ///////////////////////INFORMAR//////////////////////////////////////INFORMAR/////////////////////////////////////////////
 void ListarMascotas(eMascotas listaMasc[], int tamanioArray)
 {

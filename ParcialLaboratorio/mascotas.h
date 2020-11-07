@@ -23,7 +23,7 @@ int BuscarLibreMascota(eMascotas [], int);
 //El alta esta en razas-mascota.h
 
 ///////////////////BAJA MASCOTA///////////////////
-int BuscarPorID(int , int , eMascotas []);
+int BuscarPorIDMascota(int , int , eMascotas []);
 int eliminarUnaMascota(eMascotas [],int ,int);
 
 ///////////////MODIFICAR MASCOTA//////////////////

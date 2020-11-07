@@ -139,14 +139,15 @@ void ObtenerTipoValido(char texto[],char textoError [],char input[])
     strcpy(input,auxiliar);
 }
 
-char ObtenerSexoValido(char texto[],char textoError [])
+void ObtenerSexoValido(char texto[],char textoError [],char input)
 {
     char auxiliar;
     auxiliar=getChar(texto);
 
-    while( (auxiliar!='f') && (auxiliar!='F') && (auxiliar!='M') && (auxiliar!='m')  )
+
+    while( ((auxiliar!='f') || (auxiliar!='F')) && ((auxiliar!='M') || (auxiliar!='F'))  )
     {
-        auxiliar=getChar(textoError);
+        auxiliar=getChar(texto);
     }
-    return auxiliar;
+    strcpy(input,auxiliar);
 }

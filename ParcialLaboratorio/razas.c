@@ -57,14 +57,15 @@ int InicializarArrayRaza(eRazas listaRaza[],int tamanioArray)
      return index;
  }
 
- eRazas AltaRaza(eRazas listaRaza[],int tamanioArray, int indiceLibre)
+ eRazas AltaRaza(eRazas listaRaza[],int tamanioArray, int indiceLibre,ePaisOrigen listaPais[],int tamPais)
  {
     eRazas unaRaza;
     PedirString("\nIngrese la descripcion de la raza: ","Error. Reingrese descripcion: ",15, unaRaza.descripcionRaza);
     ObtenerTamanioRazaValido("Ingrese el tamanio de la raza(chico-mediano-grande): ","Error. Reingrese tamanio: ", unaRaza.tamanioRaza);
     PedirString("Ingrese el pais de origen de la raza: ","Error. Reingrese pais de origen: ",15, unaRaza.paisOrigenRaza);
     unaRaza.idRaza=PedirEntero("Ingrese el id de la raza : ","Error, reingrese id valido:");
-    unaRaza.idPais=PedirEntero("Ingrese el id del pais : ","Error, reingrese id valido:");
+    MostrarListadoPaisesDisponibles(listaPais,tamPais);
+    unaRaza.idPais=ObtenerIdPaisValido("Ingrese el id del pais : ","Error, reingrese id valido:",listaPais,tamPais);
     unaRaza.isEmpty=FALSE;
 
     listaRaza[indiceLibre]=unaRaza;

@@ -226,6 +226,7 @@ ePaisOrigen EncontrarPaisDeUnaRaza(eRazas unaRaza,ePaisOrigen listaPaises[],int 
      }
      return paisRaza;
 }
+
 void ImprimirListadoMascotasRazaPais(eMascotas unaMascota,eRazas unaRaza,ePaisOrigen unPais)
 {
      printf("%4d %10s %12s %5d %7c %17f %18s %15d\n",   unaMascota.idMascota,
@@ -274,4 +275,90 @@ int OrdenarMascotasPorCodigoTelefonico(eMascotas listaMasc[],ePaisOrigen unPais,
     }
     return retorno;
 }
+
+void RecogerDatosDeCadaTipo(eMascotas listaMasc[], int tamMasc)
+{
+    int contadorTipo[3]={0,0,0};
+    float acumuladorPesoTipo[3]={0,0,0};
+    float promedioDeCadaTipo[3]={0,0,0};
+
+    for(int i=0;i<tamMasc;i++)
+    {
+            if(listaMasc[i].isEmpty==FALSE)
+            {
+                if(strcmp(listaMasc[i].tipoMascota,"gato")==0)
+                {
+                    contadorTipo[0]++;
+                    acumuladorPesoTipo[0]=acumuladorPesoTipo[0]+ listaMasc[i].peso;
+                }else
+                {
+                    if(strcmp(listaMasc[i].tipoMascota,"perro")==0)
+                    {
+                        contadorTipo[1]++;
+                        acumuladorPesoTipo[1]=acumuladorPesoTipo[1]+ listaMasc[i].peso;
+                    }else
+                    {
+                        if(strcmp(listaMasc[i].tipoMascota,"raro")==0)
+                        {
+                             contadorTipo[2]++;
+                             acumuladorPesoTipo[2]=acumuladorPesoTipo[2]+ listaMasc[i].peso;
+                        }
+                    }
+                }
+        }
+    }
+
+    CalcularPromedioDeCadaTipo(acumuladorPesoTipo,contadorTipo,promedioDeCadaTipo);
+    ImprimirDatosDeCadaTipo(acumuladorPesoTipo,contadorTipo,promedioDeCadaTipo);
+}
+
+void CalcularPromedioDeCadaTipo(float totalPesoTipo[],int cantidadTipo[],float promedioDeCadaTipo[])
+{
+    for(int i=0;i<3;i++)
+    {
+        promedioDeCadaTipo[i]=totalPesoTipo[i]/cantidadTipo[i];
+        if(cantidadTipo[i]==0)
+        {
+            promedioDeCadaTipo[i]=0;
+        }
+    }
+}
+
+void ImprimirDatosDeCadaTipo(float acumuladorPesoTipo[],int contadorTipo[], float promedioDeCadaTipo[])
+{
+    char auxiliarTipoMascota[][10]={"gato","perro","raro"};
+
+    printf("\n*****************************************************************\n");
+    printf("    PESO TOTAL\t\tCANTIDAD DE MASCOTAS\tPROMEDIO PESO\n");
+    for(int i=0;i<3;i++)
+    {
+        printf(" \n----------------------------%s----------------------------\n", auxiliarTipoMascota[i] );
+        printf("     %8f  %20d  %20f",acumuladorPesoTipo[i], contadorTipo[i],promedioDeCadaTipo[i]);
+    }
+    printf("\n*****************************************************************\n");
+}
+
+/*
+******************************** 7ma parte ********************************
+
+#-Opción Listar por TAMAÑO y PESO:
+-Sabiendo que solo hay tres tamaños(tamaño{chico ,mediano o grande}),pedir
+el ingreso al usuario de un tamaño válido y mostrar el listado de mascotas de este
+tamaño con sus países de origen peso y la suma total del peso entre estas mascotas.
+
+******************************** ******************************** ******************
+*/
+
+int ListarPorTamanioYPeso(eMascotas listaMascotas,int tamMascotas, char tamanioIngresado[])
+{
+
+
+}
+
+
+
+
+
+
+
 

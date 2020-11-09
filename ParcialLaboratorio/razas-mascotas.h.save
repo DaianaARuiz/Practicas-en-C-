@@ -10,15 +10,7 @@ eMascotas AltaMascotas(eMascotas [],int , int ,int , eRazas []);
 ///////////////MODIFICAR MASCOTA//////////////////
  int ModificarUnaMascota( eMascotas [],int ,int , int ,eRazas [],int);
 
- ///////////////ALTA  RAZA//////////////////
  eRazas AltaRaza(eRazas listaRaza[],int tamanioArray, int indiceLibre,ePaisOrigen listaPais[],int tamPais);
-
- ///////////////MODIFICAR RAZA//////////////////
-
-
-
-
-
 void ListarMascotasConRazaYCodigoTelefonico(eMascotas [], int , eRazas [], int ,ePaisOrigen [],int );
 void ImprimirListadoMascotasPais(eMascotas ,eRazas ,ePaisOrigen);
 ePaisOrigen EncontrarPaisDeUnaRaza(eRazas ,ePaisOrigen [],int);
@@ -47,11 +39,6 @@ void ImprimirListadoMascotasCodigoTelefonico(eMascotas ,ePaisOrigen );
 void ListarMascotasOrdenadasPorCodigoTelefonico(eMascotas [], int , eRazas [], int ,ePaisOrigen [],int );
 
 
+
+
 void EliminarMascotasDeUnaRaza(eMascotas listaMasc[],int tamMasc,int idRaza);
-
-
-
-///PARTE 6////
-void RecogerDatosDeCadaTipo(eMascotas listaMasc[], int tamMasc);
-void CalcularPromedioDeCadaTipo(float totalPesoTipo[],int contadorTipo[],float promedioDeCadaTipo[]);
-void ImprimirDatosDeCadaTipo(float acumuladorPesoTipo[],int contadorTipo[], float promedioDeCadaTipo[]);

@@ -15,7 +15,7 @@ void HarcodearMascotas(eMascotas listaMasc[])
     char nombre[][20]={"Michi","Yoyo","Dobby","Mimi","Tomy","Roman","Genaro"};
     int edad[]={3,2,4,7,2,8,9};
     char sexo[]={'f','m','f','m','m','m','m'};
-    char tipo[][10]={"Gato","Perro","Gato","Perro","Gato","Perro","Perro"};
+    char tipo[][10]={"gato","perro","gato","perro","gato","perro","perro"};
     int idRaza[]={150,135,180,175,150,130,140};
     int peso[]={10,20,5,16,7,8,13};
 
@@ -72,7 +72,7 @@ int InicializarArrayMascotas(eMascotas listaMasc[],int tamanioArray)
     unaMascota.peso= PedirFlotante("Ingrese el peso de la mascota: ","Error, reingrese peso valido:");
 
     ListarRazas(listaRazas,tamRaza);
-    unaMascota.idRaza=PedirEntero("\nIngrese el id de la raza de la mascota: ","Error, reingrese id valido:");
+    unaMascota.idRaza=ObtenerIdRazaValido("\nIngrese el id de la raza de la mascota: ","Error, reingrese id valido:",listaRazas,tamRaza);
 
     unaMascota.isEmpty=FALSE;
     unaMascota.idMascota=listaMasc[indiceLibre-1].idMascota+100;
@@ -115,7 +115,7 @@ int ModificarUnaMascota( eMascotas listaMasc[],int idAModificar,int opcion, int 
             break;
         case 6:
             ListarRazas(listaRazas,tamRaza);
-            listaMasc[indiceIDbuscado].idRaza=PedirEntero("\nIngrese nuevo idRaza: ","Error, reingrese id raza valido: ");
+            listaMasc[indiceIDbuscado].idRaza=ObtenerIdRazaValido("\nIngrese el id de la raza de la mascota: ","Error, reingrese id valido:",listaRazas,tamRaza);
             retorno=0;
             break;
         default:

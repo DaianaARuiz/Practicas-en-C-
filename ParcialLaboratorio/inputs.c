@@ -150,3 +150,56 @@ char ObtenerSexoValido(char texto[],char textoError [])
     }
     return auxiliar;
 }
+
+int ObtenerIdRazaValido(char texto[],char textoError [], eRazas listaRazas[],int tamRaza)
+{
+    int idRazaIngresada;
+    idRazaIngresada=PedirEntero(texto,textoError);
+    while( VerificarIdRaza(listaRazas,tamRaza,idRazaIngresada))
+    {
+        idRazaIngresada=PedirEntero(textoError,textoError);
+    }
+    return idRazaIngresada;
+}
+
+int VerificarIdRaza(eRazas listaRazas[],int tamRaza, int idRazaIngresada)
+{
+    int retorno=1;
+
+     for(int i=0;i<tamRaza;i++)
+    {
+        if(idRazaIngresada==listaRazas[i].idRaza)
+        {
+            retorno=0;
+        }
+    }
+
+    return retorno;
+}
+
+int ObtenerIdPaisValido(char texto[],char textoError [], ePaisOrigen listaPais[],int tamPais)
+{
+    int idPaisIngresado;
+    idPaisIngresado=PedirEntero(texto,textoError);
+
+    while( VerificarIDPais(listaPais,tamPais,idPaisIngresado))
+    {
+        idPaisIngresado =PedirEntero(textoError,textoError);
+    }
+    return idPaisIngresado;
+}
+
+int VerificarIDPais(ePaisOrigen listaPais[],int tamPais, int idPaisIngresado)
+{
+    int retorno=1;
+
+     for(int i=0;i<tamPais;i++)
+    {
+        if(idPaisIngresado==listaPais[i].idPais)
+        {
+            retorno=0;
+        }
+    }
+
+    return retorno;
+}

@@ -51,7 +51,13 @@ void EliminarMascotasDeUnaRaza(eMascotas listaMasc[],int tamMasc,int idRaza);
 
 
 
-///PARTE 6////
+///////////////////////////////////////////PARTE 6/////////////////////////////////////////////////////////
 void RecogerDatosDeCadaTipo(eMascotas listaMasc[], int tamMasc);
 void CalcularPromedioDeCadaTipo(float totalPesoTipo[],int contadorTipo[],float promedioDeCadaTipo[]);
 void ImprimirDatosDeCadaTipo(float acumuladorPesoTipo[],int contadorTipo[], float promedioDeCadaTipo[]);
+
+///////////////////////////////////////////PARTE 7/////////////////////////////////////////////////////////
+void ListarPorTamanioYPeso(eMascotas listaMascotas[],int tamMascotas,eRazas listaRazas[],int tamRaza,ePaisOrigen listaPaises[],int tamPais, char tamanioIngresado[]);
+void BuscarEimprimirMascotasDeUnaRaza(eMascotas listaMasc[],int tamMasc,int idRaza,eRazas unaRaza,ePaisOrigen unPais);
+void SumarPesoTotalDelMismoTamanio(eMascotas listaMasc[],int tamMasc,int idRaza,float *acumuladorPeso);
+void ImprimirUnaMascotaConRazaYPais(eMascotas unaMascota,eRazas unaRaza,ePaisOrigen unPais);

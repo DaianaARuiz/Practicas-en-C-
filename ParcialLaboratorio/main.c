@@ -101,9 +101,9 @@ tamaño con sus países de origen peso y la suma total del peso entre estas masc
 
 int main()
 {
-    printf("\n*********************************************************************************");
-    printf("\n\t\t\tPRIMER PARCIAL DE LABORATORIO 1 \n\n Alumna:Ruiz Daiana Ayelen\n Division:1C \n Pofesores: Octavio Villegas y German Scarafilo\n");
-    printf("\n*********************************************************************************\n");
+    printf("\n**********************************************************************************************************************\n");
+    printf("\n\t\t\t\t\t\tPRIMER PARCIAL DE LABORATORIO 1 \n\n  Alumna:Ruiz Daiana Ayelen\n  Division:1C \n  Pofesores: Octavio Villegas y German Scarafilo\n");
+    printf("\n**********************************************************************************************************************\n");
 
     eRazas listaRazas[TAM_RAZA];
     eMascotas listaMascotas[TAM_MASC];
@@ -131,7 +131,7 @@ int main()
     InicializarArrayMascotas(listaMascotas,TAM_MASC);
     InicializarArrayRaza(listaRazas,TAM_RAZA);
      do{
-            opcionMenu=PedirEntero("\nMASCOTAS:\n\n1.ALTA MASCOTA\n2.ELIMINAR MASCOTA \n3.MODIFICAR\n4.INFORMAR\n5.HARCODEAR DATOS(solo para testeo)\n\nRAZA:\n\n6.ALTA RAZA\n7.BAJA RAZA\n10.SALIR\nEliga una opcion:","Error.No se permiten letras. Reingrese la opcion: ");
+            opcionMenu=PedirEntero("\nMASCOTAS:\n1.Alta\n2.Baja\n3.Modificacion\n4.Informar\n5.Harcodear datos(solo para testeo)\n\nRAZA:\n6.Alta\n7.Baja\n10.SALIR\n\nEliga una opcion:","Error.No se permiten letras. Reingrese la opcion: ");
 
             switch(opcionMenu)
             {
@@ -197,10 +197,10 @@ int main()
                     if(contadorMascotasCargadas!=0)
                     {
                         do{
-                            printf("\nINFORMAR\n1.Mostrar Mascotas\n2.Mostrar Razas\n3.Mostrar paises\n4.Mostrar listado de mascotas con sus razas y paises de origen");
+                            printf("\nINFORMAR:\n\n1.Mostrar Mascotas\n2.Mostrar Razas\n3.Mostrar paises\n4.Mostrar listado de mascotas con sus razas y paises de origen");
                             printf("\n5.Listar por cada raza las mascotas\n6.Mostrar mascotas ordenadas segun el peso\n7.Mostrar pais con mas mascotas\n8.Mostrar listado de mascotas con sus razas y paises de origen");
-                            printf("8.Mostrar mascotas ordenadas por codigo telefonico\n9.Listado mascotas con raza y codigo telefonico\n10.Listar por tamanio y peso\n11.Mostar listado de un tamanio a ingresar\n17.SALIR DE ESTE MENU\n");
-                            opcionMostrar=PedirEntero("Eliga una opcion:","Error.No se permiten letras. Reingrese la opcion: ");
+                            printf("9.Mostrar mascotas ordenadas por codigo telefonico\n9.Listado mascotas con raza y codigo telefonico\n10.Listar por tamanio y peso\n11.Mostar listado de un tamanio a ingresar\n17.SALIR DE ESTE MENU\n");
+                            opcionMostrar=PedirEntero("\nEliga una opcion: ","Error.No se permiten letras. Reingrese la opcion: ");
                             switch(opcionMostrar)
                             {
                                 case 1:
@@ -228,19 +228,18 @@ int main()
                                     MostrarPaisConMasMascotas(listaMascotas,contadorMascotasCargadas,listaRazas,contadorRazasCargadas);
                                     break;
                                 case 8:
-                                    ListarMascotasOrdenadasPorCodigoTelefonico(listaMascotas,contadorMascotasCargadas,listaRazas,contadorRazasCargadas,listaPaises,contadorPaisesCargados);
+                                    ListarMascotasConRazaYCodigoTelefonico(listaMascotas,contadorMascotasCargadas,listaRazas,contadorRazasCargadas,listaPaises,contadorPaisesCargados);
                                     break;
                                 case 9:
-                                    ListarMascotasConRazaYCodigoTelefonico(listaMascotas,contadorMascotasCargadas,listaRazas,contadorRazasCargadas,listaPaises,contadorPaisesCargados);
+                                     ListarMascotasOrdenadasPorCodigoTelefonico(listaMascotas,contadorMascotasCargadas,listaRazas,contadorRazasCargadas,listaPaises,contadorPaisesCargados);
                                     break;
                                 case 10:
                                     RecogerDatosDeCadaTipo(listaMascotas,TAM_MASC);
                                     break;
                                 case 11:
-                                    ObtenerTamanioRazaValido("Ingrese el tamanio de las mascotas que desea listar","Error.Los tamanios validos son 'chico','mediano,', 'grande'.Reingrese:",tamanioIngresado);
-                                    ListarPorTamanioYPeso(listaMascotas,contadorMascotasCargadas,tamanioIngresado);
+                                    ObtenerTamanioRazaValido("\nIngrese el tamanio de las mascotas que desea listar: ","Error.Los tamanios validos son 'chico','mediano,', 'grande'.Reingrese: ",tamanioIngresado);
+                                    ListarPorTamanioYPeso(listaMascotas,TAM_MASC,listaRazas,TAM_RAZA,listaPaises,TAM_PAIS,tamanioIngresado);
                                     break;
-
                             }
                         }while(opcionMostrar!=17);
                     }else

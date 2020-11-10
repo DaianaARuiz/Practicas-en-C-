@@ -18,7 +18,7 @@ void HarcodearRazas(eRazas listaRazas[])
     int idRaza[]={150,135,180,175,130,140};
     int idPais[]={40,20,50,30,10,20};
 
-     for(int i=0;i<6;i++)
+    for(int i=0;i<6;i++)
     {
         strcpy(listaRazas[i].descripcionRaza,descripcionRaza[i]);
         strcpy(listaRazas[i].tamanioRaza,tamanioRaza[i]);

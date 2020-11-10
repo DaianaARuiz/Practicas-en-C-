@@ -15,8 +15,8 @@ void ListarMascotasConRaza(eMascotas listaMasc[], int tamMasc, eRazas listaRazas
     int idRaza;
     eRazas unaRaza;
 
-    printf("\n***************************************************************************************************");
-    printf("\n\t Listado de mascotas con su raza y pais de origen: \n\n");
+    printf("\n*********************************************************************************************************");
+    printf("\n\t\tListado de mascotas con su raza y pais de origen: \n\n");
     printf("ID\tNOMBRE\t\tTIPO\tEDAD\tSEXO\t\tPESO\t\tRAZA\t\tPAIS ORIGEN\n");
     for(int i=0;i<tamMasc;i++)
     {
@@ -27,7 +27,7 @@ void ListarMascotasConRaza(eMascotas listaMasc[], int tamMasc, eRazas listaRazas
             ImprimirMascotaConRaza(listaMasc[i],unaRaza);
         }
     }
-    printf("\n***************************************************************************************************");
+    printf("\n*********************************************************************************************************");
 }
 
 eRazas EncontrarRazaDeUnaMascota(eRazas listaRazas[],int tamRaza, int idRaza)
@@ -57,25 +57,26 @@ void ImprimirMascotaConRaza(eMascotas unaMascota,eRazas unaRaza)
                                                     unaRaza.paisOrigenRaza);
 }
 
+
 ////Se debe mostrar un listado de RAZAS con las mascotas que pertenecen a esa raza:
 
 void ListarPorCadaRazaLasMascotas(eMascotas listaMasc[], int tamMasc, eRazas listaRazas[], int tamRaza)
 {
     int idRaza;
 
-    printf("\n*****************************************************************\n");
-    printf("\t Listado de cada raza con las mascotas de esa raza\n");
+    printf("\n***********************************************************\n");
+    printf("  Listado de cada raza con las mascotas de esa raza:\n\n");
     printf("ID     NOMBRE   TIPO   EDAD   SEXO    PESO\t\n");
     for(int j=0;j<tamRaza;j++)
     {
-        printf(" -------------------%s------------------- \n", listaRazas[j].descripcionRaza);
+        printf(" ----------------------%s---------------------- \n", listaRazas[j].descripcionRaza);
         idRaza=listaRazas[j].idRaza;
         if(listaRazas[j].isEmpty==FALSE)
         {
             ImprimirMascotasDeUnaRaza(listaMasc,tamMasc,idRaza);
         }
     }
-    printf("*****************************************************************\n");
+    printf("\n***********************************************************\n");
 }
 
 void ImprimirMascotasDeUnaRaza(eMascotas listaMasc[],int tamMasc,int idRaza)
@@ -100,7 +101,7 @@ void EliminarMascotasDeUnaRaza(eMascotas listaMasc[],int tamMasc,int idRaza)
     }
 }
 
-///Se debe mostrar un listado de mascotas ordenadas por peso
+//Se debe mostrar un listado de mascotas ordenadas por peso:
 int OrdenarMascotasPorPeso(eMascotas listaMasc[], int tamanioArray)
 {
     int retorno=0;
@@ -120,17 +121,6 @@ int OrdenarMascotasPorPeso(eMascotas listaMasc[], int tamanioArray)
     }
     return retorno;
 }
-/*
-void MostrarIDRazas(eRazas listaRazas[], int tamRaza)
-{
-   for(int j=0;j<tamRaza;j++)
-    {
-        printf(" id %d : %s",   listaRazas[j].idRaza,
-                                listaRazas[j].descripcionRaza);
-    }
-
-}
-*/
 
 //Mostrar el país de origen que tenga más mascotas:
 void MostrarPaisConMasMascotas(eMascotas listaMasc[],int tamMasc,eRazas listaRaza[],int tamRaza)
@@ -166,7 +156,7 @@ void ContarMascotasRazas(eMascotas listaMasc[],int tamMasc,int idRaza,int contad
     }
 }
 
-///////LISTA MASCOTAS CON RAZA Y CODIGO TELEFONICO DEL PAIS
+///////////////////////////////LISTA MASCOTAS CON RAZA Y CODIGO TELEFONICO DEL PAIS//////////////////////////////////////////////////////
 void ListarMascotasConRazaYCodigoTelefonico(eMascotas listaMasc[], int tamMasc, eRazas listaRazas[], int tamRaza,ePaisOrigen listaPaises[],int tamPais)
 {
     int idRaza;
@@ -174,7 +164,7 @@ void ListarMascotasConRazaYCodigoTelefonico(eMascotas listaMasc[], int tamMasc, 
     ePaisOrigen unPais;
 
     printf("\n***************************************************************************************************");
-    printf("\n\t Listado de mascotas con su raza y codigo telefonico del pais: \n\n");
+    printf("\n\tListado de mascotas con su raza y codigo telefonico del pais: \n\n");
     printf("ID\tNOMBRE\t\tTIPO\tEDAD\tSEXO\t\tPESO\t\tRAZA\t\tCODIGO TELEFONICO PAIS\n");
     for(int i=0;i<tamMasc;i++)
     {
@@ -190,6 +180,19 @@ void ListarMascotasConRazaYCodigoTelefonico(eMascotas listaMasc[], int tamMasc, 
     printf("\n***************************************************************************************************");
 }
 
+void ImprimirListadoMascotasRazaPais(eMascotas unaMascota,eRazas unaRaza,ePaisOrigen unPais)
+{
+     printf("%4d %10s %12s %5d %7c %17f %18s %15d\n",   unaMascota.idMascota,
+                                                        unaMascota.nombreMascota,
+                                                        unaMascota.tipoMascota,
+                                                        unaMascota.edad,
+                                                        unaMascota.sexoMascota,
+                                                        unaMascota.peso,
+                                                        unaRaza.descripcionRaza,
+                                                        unPais.codigoTelefonico);
+}
+
+///////////////////////////////LISTA MASCOTAS ORDENADAS POR CODIGO TELEFONICO////////////////////////////////////////////////////////////
 
 void ListarMascotasOrdenadasPorCodigoTelefonico(eMascotas listaMasc[], int tamMasc, eRazas listaRazas[], int tamRaza,ePaisOrigen listaPaises[],int tamPais)
 {
@@ -213,6 +216,17 @@ void ListarMascotasOrdenadasPorCodigoTelefonico(eMascotas listaMasc[], int tamMa
     printf("\n***************************************************************************************************");
 }
 
+void ImprimirListadoMascotasCodigoTelefonico(eMascotas unaMascota,ePaisOrigen unPais)
+{
+     printf("%4d %10s %12s %5d %7c %17f %15d\n",unaMascota.idMascota,
+                                                unaMascota.nombreMascota,
+                                                unaMascota.tipoMascota,
+                                                unaMascota.edad,
+                                                unaMascota.sexoMascota,
+                                                unaMascota.peso,
+                                                unPais.codigoTelefonico);
+}
+
 
 ePaisOrigen EncontrarPaisDeUnaRaza(eRazas unaRaza,ePaisOrigen listaPaises[],int tamPais)
 {
@@ -225,29 +239,6 @@ ePaisOrigen EncontrarPaisDeUnaRaza(eRazas unaRaza,ePaisOrigen listaPaises[],int 
          }
      }
      return paisRaza;
-}
-
-void ImprimirListadoMascotasRazaPais(eMascotas unaMascota,eRazas unaRaza,ePaisOrigen unPais)
-{
-     printf("%4d %10s %12s %5d %7c %17f %18s %15d\n",   unaMascota.idMascota,
-                                                        unaMascota.nombreMascota,
-                                                        unaMascota.tipoMascota,
-                                                        unaMascota.edad,
-                                                        unaMascota.sexoMascota,
-                                                        unaMascota.peso,
-                                                        unaRaza.descripcionRaza,
-                                                        unPais.codigoTelefonico);
-}
-
-void ImprimirListadoMascotasCodigoTelefonico(eMascotas unaMascota,ePaisOrigen unPais)
-{
-     printf("%4d %10s %12s %5d %7c %17f %15d\n",unaMascota.idMascota,
-                                                unaMascota.nombreMascota,
-                                                unaMascota.tipoMascota,
-                                                unaMascota.edad,
-                                                unaMascota.sexoMascota,
-                                                unaMascota.peso,
-                                                unPais.codigoTelefonico);
 }
 
 
@@ -275,6 +266,8 @@ int OrdenarMascotasPorCodigoTelefonico(eMascotas listaMasc[],ePaisOrigen unPais,
     }
     return retorno;
 }
+
+/////////////////////////////////////////////////////////PARTE 6///////////////////////////////////////////////////////////////////////
 
 void RecogerDatosDeCadaTipo(eMascotas listaMasc[], int tamMasc)
 {
@@ -338,27 +331,62 @@ void ImprimirDatosDeCadaTipo(float acumuladorPesoTipo[],int contadorTipo[], floa
     printf("\n*****************************************************************\n");
 }
 
-/*
-******************************** 7ma parte ********************************
+///////////////////////////////////////////PARTE 7/////////////////////////////////////////////////////////
 
-#-Opción Listar por TAMAÑO y PESO:
--Sabiendo que solo hay tres tamaños(tamaño{chico ,mediano o grande}),pedir
-el ingreso al usuario de un tamaño válido y mostrar el listado de mascotas de este
-tamaño con sus países de origen peso y la suma total del peso entre estas mascotas.
-
-******************************** ******************************** ******************
-*/
-
-int ListarPorTamanioYPeso(eMascotas listaMascotas,int tamMascotas, char tamanioIngresado[])
+void ListarPorTamanioYPeso(eMascotas listaMascotas[],int tamMascotas,eRazas listaRazas[],int tamRaza,ePaisOrigen listaPaises[],int tamPais, char tamanioIngresado[])
 {
+    ePaisOrigen unPais;
+    int idRaza;
+    float pesoTotal=0;
 
-
+    printf("\n*************************************************************************************************************\n");
+    printf("ID\tNOMBRE\t\tTIPO\tEDAD\tSEXO\t\tPESO\t\tNOMBRE RAZA\t\tNOMBRE PAIS\n\n");
+    for(int j=0;j<tamRaza;j++)
+    {
+         if(strcmp(tamanioIngresado,listaRazas[j].tamanioRaza)==0)
+         {
+            idRaza=listaRazas[j].idRaza;
+            unPais=EncontrarPaisDeUnaRaza(listaRazas[j],listaPaises,tamPais);
+            BuscarEimprimirMascotasDeUnaRaza(listaMascotas,tamMascotas,idRaza,listaRazas[j],unPais);
+            SumarPesoTotalDelMismoTamanio(listaMascotas,tamMascotas,idRaza,&pesoTotal);
+         }
+    }
+    printf("\n*************************************************************************************************************\n");
+    printf("El peso total de las mascotas de tamanio %s es: %2.f kilos.\n",tamanioIngresado,pesoTotal);
 }
 
+void BuscarEimprimirMascotasDeUnaRaza(eMascotas listaMasc[],int tamMasc,int idRaza,eRazas unaRaza,ePaisOrigen unPais)
+{
+    for(int i=0;i<tamMasc;i++)
+    {
+        if( listaMasc[i].idRaza==idRaza && listaMasc[i].isEmpty==FALSE)
+        {
+           ImprimirUnaMascotaConRazaYPais(listaMasc[i],unaRaza,unPais);
+        }
+    }
+}
 
+void SumarPesoTotalDelMismoTamanio(eMascotas listaMasc[],int tamMasc,int idRaza,float *acumuladorPeso)
+{
+    for(int i=0;i<tamMasc;i++)
+    {
+        if( listaMasc[i].idRaza==idRaza && listaMasc[i].isEmpty==FALSE)
+        {
+             (*acumuladorPeso) = (*acumuladorPeso) + listaMasc[i].peso;
+        }
+    }
+}
 
-
-
-
+void ImprimirUnaMascotaConRazaYPais(eMascotas unaMascota,eRazas unaRaza,ePaisOrigen unPais)
+{
+     printf("%4d %10s %12s %5d %7c %17f %18s %24s\n",   unaMascota.idMascota,
+                                                        unaMascota.nombreMascota,
+                                                        unaMascota.tipoMascota,
+                                                        unaMascota.edad,
+                                                        unaMascota.sexoMascota,
+                                                        unaMascota.peso,
+                                                        unaRaza.descripcionRaza,
+                                                        unPais.nombreDePais);
+}
 
 

@@ -203,3 +203,20 @@ int VerificarIDPais(ePaisOrigen listaPais[],int tamPais, int idPaisIngresado)
 
     return retorno;
 }
+
+
+int PedirYValidarNuevoIDRaza(char texto[],char textoError[],eRazas listaRazas[], int tamRaza)
+{
+    int idIngresado;
+    idIngresado=PedirEntero(texto,"Error. Este campo no admite letras");
+
+    for(int i=0;i<tamRaza;i++)
+    {
+        while(listaRazas[i].idRaza ==idIngresado)
+        {
+           idIngresado=PedirEntero(textoError,textoError);
+        }
+    }
+
+    return idIngresado;
+}

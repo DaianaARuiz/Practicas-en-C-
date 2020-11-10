@@ -38,8 +38,10 @@ void ImprimirMascotasDeUnaRaza(eMascotas [],int,int);
 int OrdenarMascotasPorPeso(eMascotas [], int);
 
 //mostrar el país de origen que tenga más mascotas:
-void MostrarPaisConMasMascotas(eMascotas [], int  , eRazas [], int);
-void ContarMascotasRazas(eMascotas [],int ,int ,int [],int);
+//void MostrarPaisConMasMascotas(eMascotas [], int  , eRazas [], int);
+void MostrarPaisConMasMascotas(eMascotas listaMasc[],int tamMasc,eRazas listaRaza[],int tamRaza,ePaisOrigen listaPais[],int tamPais);
+//void ContarMascotasRazas(eMascotas [],int ,int ,int [],int);
+void ContarMascotasPorPais(eRazas razaMascota,ePaisOrigen listaPaises[],int contadorMascotasPorPais[],int tamPais, char paisConMayorCantidadMascotas[],int *indicePais);
 
 void ImprimirListadoMascotasRazaPais(eMascotas,eRazas,ePaisOrigen);
 void ImprimirListadoMascotasCodigoTelefonico(eMascotas ,ePaisOrigen );

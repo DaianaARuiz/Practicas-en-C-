@@ -16,7 +16,7 @@ void HarcodearMascotas(eMascotas listaMasc[])
     int edad[]={3,2,4,7,2,8,9};
     char sexo[]={'f','m','f','m','m','m','m'};
     char tipo[][10]={"gato","perro","gato","perro","gato","perro","perro"};
-    int idRaza[]={150,135,180,175,150,130,140};
+    int idRaza[]={1000,1100,1200,1300,1400,1500,1500};
     int peso[]={10,20,5,16,7,8,13};
 
 
@@ -61,7 +61,7 @@ int InicializarArrayMascotas(eMascotas listaMasc[],int tamanioArray)
      return index;
  }
 
- eMascotas AltaMascotas(eMascotas listaMasc[],int tamanioArray, int indiceLibre,int tamRaza, eRazas listaRazas[])
+ eMascotas AltaMascotas(eMascotas listaMasc[],int tamMascota, int indiceLibre,int tamRaza, eRazas listaRazas[])
  {
     eMascotas unaMascota;
 
@@ -75,11 +75,41 @@ int InicializarArrayMascotas(eMascotas listaMasc[],int tamanioArray)
     unaMascota.idRaza=ObtenerIdRazaValido("\nIngrese el id de la raza de la mascota: ","Error, reingrese id valido:",listaRazas,tamRaza);
 
     unaMascota.isEmpty=FALSE;
-    unaMascota.idMascota=listaMasc[indiceLibre-1].idMascota+100;
+    unaMascota.idMascota=calcularNuevoIDMascota(listaMasc,tamMascota);
+
     listaMasc[indiceLibre]=unaMascota;
 
     return unaMascota;
  }
+
+ int BuscarIdMayorMascota(eMascotas listaMascotas[],int tamMascota)
+{
+    int IdAux=0;
+    int IdMax=0;
+
+    for(int i=0 ; i<tamMascota; i++)
+    {
+        if(listaMascotas[i].isEmpty==FALSE)
+        {
+            IdAux=listaMascotas[i].idMascota;
+            if(IdAux > IdMax)
+            {
+                IdMax = IdAux;
+            }
+        }
+    }
+    return IdMax;
+}
+
+
+int calcularNuevoIDMascota(eMascotas listaMascotas[],int tamMascota)
+{
+    int mayorID;
+
+    mayorID=BuscarIdMayorMascota(listaMascotas,tamMascota);
+
+    return mayorID + 100;
+}
 
  ////////////////////MODIFICAR MASCOTA////////////////////////////////MODIFICAR MASCOTA//////////////////////////////////////////
 int ModificarUnaMascota( eMascotas listaMasc[],int idAModificar,int opcion, int tamanioArray,eRazas listaRazas[],int tamRaza)
@@ -176,3 +206,4 @@ void imprimirUnaMascota(eMascotas unaMascota)
                                             unaMascota.sexoMascota,
                                             unaMascota.peso);
 }
+

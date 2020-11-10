@@ -9,11 +9,13 @@ funcionalidades.(los datos deben ser hardcodeados).
 tenemos por ahora 5 mascotas ​pero tengo lugar para 10.
 #Tenemos un listado de razas(descripción,tamaño{chico ,mediano o grande},país de
 origen)
+
 listado de razas para hardcodear :
 a-siames, chico,tailandia
 b- doberman ,grande,alemania
 c- persa,mediano,persia
 d-pastor belga, grande, bélgica
+
 las 5 mascotas están formadas por los siguientes datos:
 a- 3 gatos
 b- 2 perros
@@ -198,8 +200,8 @@ int main()
                     {
                         do{
                             printf("\nINFORMAR:\n\n1.Mostrar Mascotas\n2.Mostrar Razas\n3.Mostrar paises\n4.Mostrar listado de mascotas con sus razas y paises de origen");
-                            printf("\n5.Listar por cada raza las mascotas\n6.Mostrar mascotas ordenadas segun el peso\n7.Mostrar pais con mas mascotas\n8.Mostrar listado de mascotas con sus razas y paises de origen");
-                            printf("9.Mostrar mascotas ordenadas por codigo telefonico\n9.Listado mascotas con raza y codigo telefonico\n10.Listar por tamanio y peso\n11.Mostar listado de un tamanio a ingresar\n17.SALIR DE ESTE MENU\n");
+                            printf("\n5.Listar por cada raza las mascotas\n6.Mostrar mascotas ordenadas segun el peso\n7.Mostrar pais con mas mascotas\n8.Listado mascotas con raza y codigo telefonico");
+                            printf("\n9.Mostrar mascotas ordenadas por codigo telefonico\n10.Listar por tamanio y peso\n11.Mostar listado de un tamanio a ingresar\n17.SALIR DE ESTE MENU\n");
                             opcionMostrar=PedirEntero("\nEliga una opcion: ","Error.No se permiten letras. Reingrese la opcion: ");
                             switch(opcionMostrar)
                             {
@@ -225,7 +227,8 @@ int main()
                                     }
                                     break;
                                 case 7:
-                                    MostrarPaisConMasMascotas(listaMascotas,contadorMascotasCargadas,listaRazas,contadorRazasCargadas);
+                                    //MostrarPaisConMasMascotas(listaMascotas,contadorMascotasCargadas,listaRazas,contadorRazasCargadas);
+                                    MostrarPaisConMasMascotas(listaMascotas,contadorMascotasCargadas,listaRazas,contadorRazasCargadas,listaPaises,TAM_PAIS);
                                     break;
                                 case 8:
                                     ListarMascotasConRazaYCodigoTelefonico(listaMascotas,contadorMascotasCargadas,listaRazas,contadorRazasCargadas,listaPaises,contadorPaisesCargados);

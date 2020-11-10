@@ -5,11 +5,12 @@
 #include "razas-mascotas.h"
 #define TAM_RAZA 10
 #define TAM_MASC 20
+#define TAM_PAIS 5
+
 #define TRUE 1
 #define FALSE 0
 
-
-/////Se debe mostrar un listado de mascotas con sus razas y países de origen:
+/////////////////////////////////////listado de mascotas con sus razas y países de origen:///////////////////////////////////////
 void ListarMascotasConRaza(eMascotas listaMasc[], int tamMasc, eRazas listaRazas[], int tamRaza)
 {
     int idRaza;
@@ -57,9 +58,7 @@ void ImprimirMascotaConRaza(eMascotas unaMascota,eRazas unaRaza)
                                                     unaRaza.paisOrigenRaza);
 }
 
-
-////Se debe mostrar un listado de RAZAS con las mascotas que pertenecen a esa raza:
-
+/////////////////////////////////////listado de RAZAS con las mascotas que pertenecen a esa raza///////////////////////////////////////
 void ListarPorCadaRazaLasMascotas(eMascotas listaMasc[], int tamMasc, eRazas listaRazas[], int tamRaza)
 {
     int idRaza;
@@ -101,7 +100,7 @@ void EliminarMascotasDeUnaRaza(eMascotas listaMasc[],int tamMasc,int idRaza)
     }
 }
 
-//Se debe mostrar un listado de mascotas ordenadas por peso:
+///////////////////////////////////////////listado de mascotas ordenadas por peso:////////////////////////////////////////////////////////
 int OrdenarMascotasPorPeso(eMascotas listaMasc[], int tamanioArray)
 {
     int retorno=0;
@@ -121,14 +120,14 @@ int OrdenarMascotasPorPeso(eMascotas listaMasc[], int tamanioArray)
     }
     return retorno;
 }
-
-//Mostrar el país de origen que tenga más mascotas:
+///////////////////////////////////////////el país de origen que tenga más mascotas:///////////////////////////////////////////////////////////////////
+/*
 void MostrarPaisConMasMascotas(eMascotas listaMasc[],int tamMasc,eRazas listaRaza[],int tamRaza)
 {
     int contadorMascotasPorPais[TAM_RAZA]={0};
     int idRaza;
     int mayorCantidadMascotas=0;
-    int indicePais=0;
+    int indicePais;
     char paisConMayorCantidadMascotas[15];
 
     for(int j=0;j<tamRaza;j++)
@@ -152,6 +151,43 @@ void ContarMascotasRazas(eMascotas listaMasc[],int tamMasc,int idRaza,int contad
         if(listaMasc[i].idRaza==idRaza)
         {
             contadorMascotasPorPais[j]++;
+        }
+    }
+}
+*/
+void MostrarPaisConMasMascotas(eMascotas listaMasc[],int tamMasc,eRazas listaRaza[],int tamRaza,ePaisOrigen listaPais[],int tamPais)
+{
+    eRazas razaMascota;
+    int contadorMascotasPorPais[TAM_PAIS]={0};
+    char paisConMayorCantidadMascotas[15];
+    int idRaza;
+    int indicePais;
+
+    for(int i=0 ;i<tamMasc;i++)
+    {
+        idRaza=listaMasc[i].idRaza;
+        razaMascota=EncontrarRazaDeUnaMascota(listaRaza,tamRaza,idRaza);
+        ContarMascotasPorPais(razaMascota,listaPais,contadorMascotasPorPais,tamPais,paisConMayorCantidadMascotas,&indicePais);
+    }
+    printf("\nEl pais que mas mascotas tiene es: %s con %d mascotas \n\n",paisConMayorCantidadMascotas,contadorMascotasPorPais[indicePais]);
+}
+
+void ContarMascotasPorPais(eRazas razaMascota,ePaisOrigen listaPaises[],int contadorMascotasPorPais[],int tamPais, char paisConMayorCantidadMascotas[],int *indicePais)
+{
+    int mayorCantidadMascotas=0;
+
+    for(int j=0;j<tamPais;j++)
+    {
+        if(razaMascota.idPais==listaPaises[j].idPais)
+        {
+            contadorMascotasPorPais[j]++;
+        }
+
+        if(contadorMascotasPorPais[j]>mayorCantidadMascotas)
+        {
+            mayorCantidadMascotas=contadorMascotasPorPais[j];
+            *indicePais=j;
+            strcpy(paisConMayorCantidadMascotas,listaPaises[j].nombreDePais);
         }
     }
 }
@@ -241,14 +277,12 @@ ePaisOrigen EncontrarPaisDeUnaRaza(eRazas unaRaza,ePaisOrigen listaPaises[],int 
      return paisRaza;
 }
 
-
-
-
 int OrdenarMascotasPorCodigoTelefonico(eMascotas listaMasc[],ePaisOrigen unPais,int tamMasc)
 {
     eMascotas auxMascota;
     int retorno=0;
     int codigoTelefonicoMayor=0;
+
     for(int i=0;i<tamMasc-1;i++)
     {
         for(int j=i+1;j<tamMasc;j++)
@@ -259,7 +293,6 @@ int OrdenarMascotasPorCodigoTelefonico(eMascotas listaMasc[],ePaisOrigen unPais,
                 listaMasc[i]=listaMasc[j];
                 listaMasc[j]=auxMascota;
                 codigoTelefonicoMayor=unPais.codigoTelefonico;
-                printf("%d el de la estrucuta",unPais.codigoTelefonico);
             }
        }
        retorno=1;

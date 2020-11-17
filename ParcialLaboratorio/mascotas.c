@@ -66,7 +66,7 @@ int InicializarArrayMascotas(eMascotas listaMasc[],int tamanioArray)
     eMascotas unaMascota;
 
     PedirString("\nIngrese nombre mascota: ","Error. Reingrese nombre: ",20, unaMascota.nombreMascota);
-    ObtenerTipoValido("Ingrese el tipo de mascota: ","Error. Reingrese tipo: ",unaMascota.tipoMascota);
+    ObtenerTipoValido("Ingrese el tipo de mascota('gato','perro','raro'): ","Error. Reingrese tipo: ('gato','perro','raro')",unaMascota.tipoMascota);
     unaMascota.edad= PedirEntero("Ingrese edad de la mascota: ","Error, reingrese edad valida:");
     unaMascota.sexoMascota= ObtenerSexoValido("Ingrese sexo mascota(f o m): ", "Erro. Sexo no valido. Reingrese: ");
     unaMascota.peso= PedirFlotante("Ingrese el peso de la mascota: ","Error, reingrese peso valido:");

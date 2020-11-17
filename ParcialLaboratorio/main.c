@@ -83,6 +83,22 @@ peso por tipo. Estos tres datos en una tabla bien hecha.
 el ingreso al usuario de un tamaño válido y mostrar el listado de mascotas de este
 tamaño con sus países de origen peso y la suma total del peso entre estas mascotas.
 
+********************************8va parte
+#-ordenar por TIPO y PESO:
+Listar las mascotas ordenadas por tipo y si hay dos mascotas del mismo tipo
+ordenarlas por peso
+********************************9na parte
+
+#-Crear la estructura “eTipo”, para que reemplace a estos tipo
+tipo{gato ,perro o raro}
+
+#-Alta de mascota, se pueden cargar todos los datos y se debe mostrar el listado de
+razas disponibles y eTipo disponibles, teniendo en cuenta que ya tengo 5 mascotas
+cargadas y que el máximo es 10
+
+#pedir un tipo al usuario y se deben mostrar todas las mascotas de ese tipo solamente
+, utilizar la nueva estructura y su relación con mascota
+
 ******************************** ******************************** ******************
 
 */
@@ -201,7 +217,8 @@ int main()
                         do{
                             printf("\nINFORMAR:\n\n1.Mostrar Mascotas\n2.Mostrar Razas\n3.Mostrar paises\n4.Mostrar listado de mascotas con sus razas y paises de origen");
                             printf("\n5.Listar por cada raza las mascotas\n6.Mostrar mascotas ordenadas segun el peso\n7.Mostrar pais con mas mascotas\n8.Listado mascotas con raza y codigo telefonico");
-                            printf("\n9.Mostrar mascotas ordenadas por codigo telefonico\n10.Listar por tamanio y peso\n11.Mostar listado de un tamanio a ingresar\n17.SALIR DE ESTE MENU\n");
+                            printf("\n9.Mostrar mascotas ordenadas por codigo telefonico\n10.Listar por tamanio y peso\n11.Mostar listado de un tamanio a ingresar\n");
+                            printf("\n12.Listar mascotas ordenadas por peso y tipo.\n17.SALIR DE ESTE MENU\n");
                             opcionMostrar=PedirEntero("\nEliga una opcion: ","Error.No se permiten letras. Reingrese la opcion: ");
                             switch(opcionMostrar)
                             {
@@ -242,6 +259,12 @@ int main()
                                 case 11:
                                     ObtenerTamanioRazaValido("\nIngrese el tamanio de las mascotas que desea listar: ","Error.Los tamanios validos son 'chico','mediano,', 'grande'.Reingrese: ",tamanioIngresado);
                                     ListarPorTamanioYPeso(listaMascotas,TAM_MASC,listaRazas,TAM_RAZA,listaPaises,TAM_PAIS,tamanioIngresado);
+                                    break;
+                                case 12:
+                                    if(OrdenarMascotasPorTipoYPeso (listaMascotas,TAM_MASC ))
+                                    {
+                                        ListarMascotas(listaMascotas,contadorMascotasCargadas);
+                                    }
                                     break;
                             }
                         }while(opcionMostrar!=17);

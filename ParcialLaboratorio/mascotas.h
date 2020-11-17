@@ -21,7 +21,8 @@ void imprimirUnaMascota(eMascotas);
 int InicializarArrayMascotas(eMascotas [],int);
 int BuscarLibreMascota(eMascotas [], int);
 //El alta esta en razas-mascota.h
-
+ int BuscarIdMayorMascota(eMascotas listaMascotas[],int tamMascota);
+int calcularNuevoIDMascota(eMascotas listaMascotas[],int tamMascota);
 ///////////////////BAJA MASCOTA///////////////////
 int BuscarPorIDMascota(int , int , eMascotas []);
 int eliminarUnaMascota(eMascotas [],int ,int);

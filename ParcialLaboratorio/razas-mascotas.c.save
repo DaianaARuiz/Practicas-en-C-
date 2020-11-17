@@ -506,10 +506,9 @@ void ImprimirUnaMascotaConRazaYPais(eMascotas unaMascota,eRazas unaRaza,ePaisOri
 }
 
 //////////////////////////////////////DOBLE ORDENAMIENTO////////////////////////////////////////////////////////////
-int OrdenarMascotasPorTipoYPeso (eMascotas listaMascotas[], int tamMasc)
+void OrdenarMascotasPorTipoYPeso (eMascotas listaMascotas[], int tamMasc)
 {
     eMascotas auxMascota;
-    int retorno=0;
 
     for(int i=0; i<tamMasc-1; i++)
     {
@@ -524,7 +523,6 @@ int OrdenarMascotasPorTipoYPeso (eMascotas listaMascotas[], int tamMasc)
                         auxMascota = listaMascotas[i];
                         listaMascotas[i] = listaMascotas[j];
                         listaMascotas[j] = auxMascota;
-                        retorno=1;
                     }else if(strcmp(listaMascotas[i].tipoMascota, listaMascotas[j].tipoMascota)==0)
                     {
                         if(listaMascotas[i].peso > listaMascotas[j].peso)
@@ -532,8 +530,6 @@ int OrdenarMascotasPorTipoYPeso (eMascotas listaMascotas[], int tamMasc)
                             auxMascota = listaMascotas[i];
                             listaMascotas[i] = listaMascotas[j];
                             listaMascotas[j] = auxMascota;
-                            retorno=1;
-
                         }
                     }
                 }

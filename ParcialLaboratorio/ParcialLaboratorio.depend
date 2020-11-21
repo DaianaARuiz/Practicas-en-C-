@@ -45,7 +45,7 @@
 
 1602596588 c:\mis cosas\1. utn\prog-lab1\practicas-en-c\parciallaboratorio\pais.h
 
-1604981550 source:c:\mis cosas\1. utn\practicas-en-c-\parciallaboratorio\main.c
+1605614313 source:c:\mis cosas\1. utn\practicas-en-c-\parciallaboratorio\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -78,7 +78,7 @@
 	<ctype.h>
 	"razas-mascotas.h"
 
-1605575433 source:c:\mis cosas\1. utn\practicas-en-c-\parciallaboratorio\razas-mascotas.c
+1605614283 source:c:\mis cosas\1. utn\practicas-en-c-\parciallaboratorio\razas-mascotas.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -100,4 +100,6 @@
 	"razas-mascotas.h"
 
 1605009739 c:\mis cosas\1. utn\practicas-en-c-\parciallaboratorio\inputs.h
+
+1605613019 source:c:\mis cosas\1. utn\practicas-en-c-\parciallaboratorio\tipo.c
 

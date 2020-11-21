@@ -1,0 +1,119 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "LinkedList.h"
+#include "Controller.h"
+#include "Employee.h"
+#include "inputs.h"
+
+/****************************************************
+PARTE 1
+1- El área de casting del programa La Voz solicita a nuestra empresa el diseño de un sistema que
+permita registrar y administrar los datos de los participantes de la segunda temporada del
+programa. Para ello es necesario contar con los siguientes datos de un participante.
+Concursante
+
+● numeroConcursante (int)
+● año de nacimiento
+● nombre (string, 50)
+● dni (string, 8, valor entre 9.000.000 y 45.000.000)
+● fechaPresentacion (Date)
+● temaPresentacion (string, 30)
+● puntajePrimeraRonda(int)
+
+Los datos van a estar cargados en un archivo .CSV
+
+El programa contará con el siguiente menú:
+1) Cargar archivo: Se pedirá el nombre del archivo y se cargará en un LinkedList los
+elementos del mismo.
+2) Imprimir Datos: Se imprimirá por pantalla la tabla con los datos.
+Continua...
+*****************************************************/
+
+
+int main()
+{
+    printf("\n*********************************************************************************");
+    printf("\n\t\t\tTRABAJO PRACTICO 3 \n\n Alumna:Ruiz Daiana Ayelen\n Division:1C \n");
+    printf("\n*********************************************************************************\n");
+
+    int option = 0;
+    char nameArchive[20];
+    int cargaTexto=0;
+    int cargaBin=0;
+    LinkedList* listaParticipantes = ll_newLinkedList();
+    int num;
+
+    if(listaParticipantes!=NULL)
+    {
+        do{
+            printf("\n1. Cargar los datos (modo texto).\n2. Cargar los datos (modo binario).\n3.Calcular puntajes segunda ronda\n4.Imprimir los datos.\n10. Salir\n");
+            inputs_getAndValidateInt(&option,"\nIngrese su opcion: ","Error.Debe ingresar un numero:","\nError,solo puedes ingresar del [1] al [10]:",1,10);
+
+            switch(option)
+            {
+                case 1:
+                    inputs_PedirNombreArchivo("Ingrese el nombre del archivo: ","Nombre invalido. Reingrese: ",20,nameArchive);
+                    printf("%s",nameArchive);
+
+                    cargaTexto = controller_loadFromText(nameArchive,listaParticipantes);
+                    if(cargaTexto == 1 && cargaBin == 0)
+                    {
+                        printf("los datos fueron cargados en modo Texto\n");
+                        cargaTexto = 1;
+                    }else if(cargaBin==1)
+                    {
+                         printf("El archivo ya fue cargado en modo Binario\n");
+                    }else{
+                        printf("El archivo no existe\n");
+                    }
+                    break;
+                case 2:
+                    cargaBin = controller_loadFromBinary(nameArchive,listaParticipantes);
+                    if(cargaBin == 1 && cargaTexto == 0)
+                    {
+                        printf("los datos fueron cargados en modo Binario\n");
+                        cargaBin = 1;
+                    }else if(cargaTexto==1)
+                    {
+                         printf("El archivo ya fue cargado en modo Texto\n");
+                    }else{
+                        printf("El archivo no existe\n");
+                    }
+                    break;
+                case 3:
+                     if(ll_isEmpty(listaParticipantes)==0)
+                    {
+                        if(controller_ListParticipant(listaParticipantes)!=1)
+                        {
+                            printf("\nError. No se pudo cargar la lista.\n");
+                        }
+                    }else{
+                         printf("\nError. No hay empleados cargados.\n");
+                    }
+                    break;
+                case 4:
+
+                    break;
+                case 5:
+                    break;
+                case 6:
+
+                     GenerarPuntajeAleatorio(&num);
+                     printf("%d",num);
+                    break;
+                case 7:
+
+                    break;
+                case 8:
+                    break;
+                case 9:
+                    break;
+            }
+        }while(option != 10);
+    }else
+    {
+        printf("Error. No hubo espacio en memoria para cargar la lista.");
+    }
+
+    return 0;
+}

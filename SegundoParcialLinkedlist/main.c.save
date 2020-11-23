@@ -41,6 +41,7 @@ int main()
     int cargaTexto=0;
     int cargaBin=0;
     LinkedList* listaParticipantes = ll_newLinkedList();
+    int num;
 
     if(listaParticipantes!=NULL)
     {
@@ -96,8 +97,8 @@ int main()
                 case 5:
                     break;
                 case 6:
-                     GenerarPuntajeAleatorio(int* num)
-                     p
+                     GenerarPuntajeAleatorio(&num);
+                     printf("%d",num);
                     break;
                 case 7:
 
